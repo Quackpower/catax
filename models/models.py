@@ -134,13 +134,7 @@ class catax(models.Model):
             self.permisos_extendidos_operador = True
 
 
-    @api.model
-    def actualizarGlobal(self):
-        print('YUN')
-
-    def _oficio_reporte_getFilename(self):
-        self.filename_documento_identidad = "DOCUMENTO DE REPORTE.PDF" #" + self.folio +
-
+    
     @api.model
     def create(self, values):
         self.sanitizador_inyeccion(values)
