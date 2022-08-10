@@ -131,9 +131,7 @@
                           </notebook>
                           <group string="Atención y seguimiento." >
                             <group>
-                              <field name="area_categoria" domain="[('id_categoria','=', categoria)]" attrs="{'readonly': ['|','|','|',('is_analist', '=', 'False'),('estatus', '=', 'ATEN') , '&amp;',  ('permisos_extendidos_operador', '=', True),('cve_categoria', '!=', 'PROC'), '&amp;' , ('is_operador','=',True),('permisos_extendidos_operador','=',False)]}" />
-                              <field name="id_depto_aux" readonly="1" invisible="1"/>
-                              <field name="responsable_area" domain="[('department_id.id','=', id_depto_aux)]" attrs="{'readonly': ['|','|','|',('is_analist', '=', 'False'),('estatus', '=', 'ATEN') , '&amp;',  ('permisos_extendidos_operador', '=', True),('cve_categoria', '!=', 'PROC'), '&amp;' , ('is_operador','=',True),('permisos_extendidos_operador','=',False)]}"  />
+                              
                               <field name="prioridad_reporte" attrs="{'readonly': ['|','|','|',('is_analist', '=', 'False'),('estatus', '=', 'ATEN') , '&amp;',  ('permisos_extendidos_operador', '=', True),('cve_categoria', '!=', 'PROC'), '&amp;' , ('is_operador','=',True),('permisos_extendidos_operador','=',False)]}" />
                               <field name="comentario_seguimiento" attrs="{'readonly': ['|','|','|',('is_analist', '=', 'False'),('estatus', '=', 'ATEN') , '&amp;',  ('permisos_extendidos_operador', '=', True),('cve_categoria', '!=', 'PROC'), '&amp;' , ('is_operador','=',True),('permisos_extendidos_operador','=',False)]}" />
                               <field name="comentario_area" attrs="{'readonly': ['|','|','|',('is_analist', '=', 'False'),('estatus', '=', 'ATEN') , '&amp;',  ('permisos_extendidos_operador', '=', True),('cve_categoria', '!=', 'PROC'), '&amp;' , ('is_operador','=',True),('permisos_extendidos_operador','=',False)]}" />
