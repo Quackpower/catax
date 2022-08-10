@@ -124,20 +124,8 @@ class Catax(http.Controller):
         try:
             
             if 'colonia' in km:
-                col_id = http.request.env['directions_utils.colonias'].sudo().search([('&'),('colonias_capa', '=ilike', km['colonia']),('id_municipio','=',2087)], limit=1)
-                
-                if len(col_id)<1:
-                    items_to_remove = {'colonia ':''}
-                    col = strrep(km['colonia'], items_to_remove)
-                    col_id = http.request.env['directions_utils.colonias'].sudo().search([('&'),('id_municipio','=',2087),('colonias_capa', 'ilike', col)], limit=1)
-                    if len(col_id)<1:
-                        items_to_remove = {'las ':'','los ':'','la ':'','el ':'','del ':'','de ':'','colonia ':''}
-                        col = strrep(km['colonia'], items_to_remove)
-                        col_id = http.request.env['directions_utils.colonias'].sudo().search([('&'),('id_municipio','=',2087),('colonias_capa', 'ilike', col)], limit=1)
-
-                if col_id:        
-                    localStorage.setItem('colonia', col_id['id'])
-                    logger.info(localStorage.getItem('colonia'))
+                localStorage.setItem('colonia', km['colonia'])
+                logger.info(localStorage.getItem('colonia'))
                 
 
         except ValueError as er:
@@ -148,18 +136,7 @@ class Catax(http.Controller):
             data['status'] = False
             data['error'] = str(er)
 
-        try:
-            if 'cp' in km:
-                cpId = http.request.env['directions_utils.codigos_postales'].sudo().search([('cp','=',km['cp'])])
-                localStorage.setItem('cp', cpId['id'])
-                
-        except ValueError as er:
-            data['status'] = False
-            data['error'] = str(er)
-
-        except Exception as er:
-            data['status'] = False
-            data['error'] = str(er)
+        
 
         
         
