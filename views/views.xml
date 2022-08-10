@@ -250,7 +250,6 @@
 
         <record id="action_catax_panel_control_action_window" model="ir.actions.server">
           <field name="name">Panel de control</field>
-          <field name="condition">True</field>
           <field name="type">ir.actions.server</field>
           <field name="model_id" ref="model_catax_catax"/>
           <field name="state">code</field>
