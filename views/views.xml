@@ -73,8 +73,7 @@
                               <group>                                
                                 <field name="medio_reporte" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}" /> 
                                 <field name="redsocial" attrs="{'invisible' : [('medio_reporte','!=', 'R')], 'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')] }" />   
-                                <field name="filename_oficio_reporte"  invisible="1" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}"/>   
-                                <field name="oficio_reporte" filename="filename_oficio_reporte" attrs="{'invisible' : [('medio_reporte','!=', 'O')] , 'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}"  />
+                                
                               </group>
                           </group>
                           <t name="catax_catax_form" >
@@ -105,7 +104,7 @@
                                 <field name="descripcion_reporte" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}"/>            
                             </group>
                             <group>
-                              <field name="fotografiaReporte"  style="width:100%;" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}"/> 
+                              <field name="fotografiaReporte" widget="image" style="width:100%;" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}"/> 
                             </group>
                           </group>
                           <group>
