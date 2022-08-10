@@ -177,20 +177,7 @@
                           </group>
 
                         </page>
-                        <page string="Historial de asignaciones"  groups="base.group_system"> 
-                          <field name="historial_asignaciones">
-                            <tree default_order='create_date desc'>
-                              <field name="categoria" />
-                              <field name="sub_categoria" />                            
-                              <field name="area_asignada" />
-                              <field name="responsable_area" />
-                              <field name="comentario_seguimiento" />
-                              <field name="comentario_area" />
-                              <field name="create_uid" string="Creado por"/>
-                              <field name="create_date" string="Fecha de creación"/>
-                            </tree>
-                          </field>
-                        </page> 
+                        
                       </notebook>
                     </sheet>
                 </form>
