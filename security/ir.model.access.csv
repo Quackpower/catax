@@ -1,7 +1,5 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 catax_catax_cmas_catax_lectura,Vista_CATAX_CMAS_catax_lectura,model_catax_catax,catax.lectura,1,0,0,0
-rel_cmas_catax_cmas_catax_lectura,Rel_CATAX_CMAS_catax_lectura,model_catax_catax_cmas,catax.lectura,1,1,0,0
-rel_catax_cmas_catax_lectura,Categorias_CATAX_catax_lectura,model_catax_catax_alumbrado,catax.lectura,1,0,0,0
 cmas_catax_comentarios_catax_lectura,Comentarios_CMAS_CATAX__catax_lectura,model_catax_comentarios_apoyo,catax.lectura,1,1,0,0
 categorias_cmas_catax_catax_lectura,Catagorias_CATAX_CMAS_catax_lectura,catalogo_catax.model_catalogos_catax,catax.lectura,1,0,0,0
 sub_categorias_cmas_catax_catax_lectura,subCatagorias_CATAX_CMAS_catax_lectura,catalogo_catax.model_subcategorias_catax,catax.lectura,1,0,0,0
@@ -12,8 +10,6 @@ access_catax_cmas_analista_report_catax_lectura,Catax cmas_analista reporte_cata
 access_catax_cmas_catalo_area_catax_lectura,Catax CMAS areas categorias_catax_lectura,catalogo_catax.model_subcategorias_catax_relacion_categoria_areas,catax.lectura,1,0,0,0
 evidencias_respuesta_catax_lectura,evidencias_respuesta_catax_lectura,model_catax_evidencia_atencion,catax.lectura,1,0,0,0
 catax_catax_operador,Vista_CATAX_Operador,model_catax_catax,catax.operador,1,1,1,0
-rel_oper_catax_operador,Categorias_CATAX_Operador,model_catax_catax_cmas,catax.operador,1,1,1,0
-rel_oper_catax_operador_alum,Categorias_CATAX_Operador,model_catax_catax_alumbrado,catax.operador,1,1,1,1
 oper_catax_comentarios,Comentarios_operador_CATAX_Operador,model_catax_comentarios_apoyo,catax.operador,1,1,0,0
 categorias_oper_catax,Catagorias_CATAX_operador,catalogo_catax.model_catalogos_catax,catax.operador,1,0,0,0
 sub_categorias_oper_catax,Sub_Catagorias_CATAX_operador,catalogo_catax.model_subcategorias_catax,catax.operador,1,0,0,0
@@ -24,8 +20,6 @@ access_catax_oper_report,Catax oper reporte,model_catax_reportes,catax.operador,
 access_catax_oper_catalo_area,Catax oper areas categorias,catalogo_catax.model_subcategorias_catax_relacion_categoria_areas,catax.operador,1,0,0,0
 evidencias_respuesta_operador,evidencias_respuesta_operador,model_catax_evidencia_atencion,catax.operador,1,1,1,1
 catax_catax_cmas,Vista_CATAX_CMAS,model_catax_catax,catax.cmas_analista,1,1,1,0
-rel_cmas_catax,Rel__CATAX_CMAS,model_catax_catax_cmas,catax.cmas_analista,1,1,0,0
-rel_oper_catax_cmas_alum,Categorias_CATAX_Operador,model_catax_catax_alumbrado,catax.cmas_analista,1,1,1,1
 cmas_catax_comentarios,Comentarios_CMAS_CATAX_Operador,model_catax_comentarios_apoyo,catax.cmas_analista,1,1,0,0
 categorias_cmas_catax,Catagorias_CATAX_CMAS,catalogo_catax.model_catalogos_catax,catax.cmas_analista,1,0,0,0
 sub_categorias_cmas_catax,subCatagorias_CATAX_CMAS,catalogo_catax.model_subcategorias_catax,catax.cmas_analista,1,0,0,0
@@ -36,8 +30,6 @@ access_catax_cmas_analista_report,Catax cmas_analista reporte,model_catax_report
 access_catax_cmas_catalo_area,Catax CMAS areas categorias,catalogo_catax.model_subcategorias_catax_relacion_categoria_areas,catax.cmas_analista,1,0,0,0
 evidencias_respuesta_cmas_analista,evidencias_respuesta_cmas_analista,model_catax_evidencia_atencion,catax.cmas_analista,1,1,1,1
 catax_catax_cmas_cmas_ejecutivo,Vista_CATAX_CMAS_cmas_ejecutivo,model_catax_catax,catax.cmas_ejecutivo,1,1,1,0
-rel_cmas_catax_cmas_cmas_ejecutivo,Rel CATAX CMAS cmas ejecutivo,model_catax_catax_cmas,catax.cmas_ejecutivo,1,1,0,0
-rel_catax_cmas_cmas_ejecutivo,Categorias_CATAX alum ejecutivo,model_catax_catax_alumbrado,catax.cmas_ejecutivo,1,1,1,1
 cmas_catax_comentarios_cmas_ejecutivo,Comentarios_CMAS_CATAX__cmas_ejecutivo,model_catax_comentarios_apoyo,catax.cmas_ejecutivo,1,1,0,0
 categorias_cmas_catax_cmas_ejecutivo,Catagorias_CATAX_CMAS_cmas_ejecutivo,catalogo_catax.model_catalogos_catax,catax.cmas_ejecutivo,1,0,0,0
 sub_categorias_cmas_catax_cmas_ejecutivo,subCatagorias_CATAX_CMAS_cmas_ejecutivo,catalogo_catax.model_subcategorias_catax,catax.cmas_ejecutivo,1,0,0,0
