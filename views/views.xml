@@ -2,7 +2,7 @@
 <odoo>
   <data>
         <record model="ir.ui.view" id="catax_catax_form">
-            <field name="name">Reportes CATAX</field>
+            <field name="name">Reporte Ciudadano CMAS</field>
             <field name="model">catax.catax</field>
             <field name="arch" type="xml">
                 <form>
@@ -48,7 +48,7 @@
                     </header>
                     <sheet>
                       <notebook>
-                        <page string="Reporte CATAX">                        
+                        <page string="Reporte Ciudadano CMAS">                        
                           <group>
                             <group>
                               <field name="is_operador" invisible="1"/> 
@@ -88,7 +88,6 @@
                           </t>
                           <group string="Ubicación del reporte">
                             <group class="direccion_find">
-                              <field name="municipio" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}"/>
                               <field name="colonia" class="colonia" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}" /> 
                               <field name="calle" class="calle" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}" /> 
                               <field name="no_exterior" class="no_ext" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}"/> 
@@ -115,45 +114,9 @@
                             <field name="observaciones" attrs="{'readonly': ['|',('is_operador','=',False), ('estatus','=','ATEN')]}"/>  
                           </group> 
                           <notebook>
-                            <page string="SIPINNA" attrs="{'invisible': [('cve_categoria', '!=' ,'ANNA')]}" groups="catax.operador,catax.sipinna_ejecutivo,catax.sipinna,catax.lectura"> 
-                              <group>
-                                <field name="nombre_padre" attrs="{'invisible': [('cve_subcategoria', '!=' ,'APSP')]}" />
-                                <field name="nombre_solicitante" attrs="{'invisible': [('cve_subcategoria', '!=' ,'RVSP'),('cve_subcategoria', '!=' ,'CDSP')]}"/>
-                                <field name="nombre_dependencia" attrs="{'invisible': [('cve_subcategoria', '!=' ,'CDSP')]}"/>
-                                <field name="direccion_instancia" attrs="{'invisible': [('cve_subcategoria', '!=' ,'CDSP')]}"/> 
-                              </group>
-                            </page>
-
+                            
                               
-                            <page string="CMAS" attrs="{'invisible': [('cve_categoria', '!=' ,'CMAS')]}" groups="catax.operador, catax.cmas_analista,catax.cmas_ejecutivo,catax.operador_ejecutivo,catax.lectura"> 
-                              <group>
-                                <field name="report_cmas" nolabel="1" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}" >
-                                  <tree  editable="bottom">
-                                    <field name="numero_registro" />
-                                    <field name="numero_medidor"/>
-                                    <field name="tipo_material"/>
-                                  </tree>
-                                </field>   
-                              </group>
-                            </page>
-                            <page string="Protección civil" attrs="{'invisible': [('cve_categoria', '!=' ,'PTCI')]}" groups="catax.operador, catax.proteccion_civil,catax.proteccion_civil_ejecutivo,catax.operador_ejecutivo,catax.lectura"> 
-                              <group>
-                                <field name="personas_atrapadas" widget="radio" attrs="{'invisible': [('cve_subcategoria', '!=' ,'ICHP'),('cve_subcategoria', '!=' ,'AXAV')], 'readonly': [('medio_reporte','=','W')]}"/>
-                                <field name="tipo_tanque" widget="radio" attrs="{'invisible': [('cve_subcategoria', '!=' ,'FUGD')], 'readonly': [('medio_reporte','=','W')]}" />
-                                <field name="afectacion_vivienda" widget="radio" attrs="{'invisible': [('cve_subcategoria', '!=' ,'APDT')] , 'readonly': [('medio_reporte','=','W')]}" />
-                                <field name="nombre_completo" attrs="{'readonly': [('medio_reporte','=','W')]}"/>
-                              </group>
-                            </page>
-
-                            <page string="Alumbrado" attrs="{'invisible': [('cve_categoria', '!=' ,'ALUM')], }" groups="catax.operador, catax.alum_analista,catax.alum_ejecutivo,catax.operador_ejecutivo,catax.lectura"> 
-                              <group>
-                                <field name="report_alumbrado" nolabel="1"  attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}"  >
-                                  <tree  editable="bottom">
-                                    <field name="no_luminaria" />
-                                  </tree>
-                                </field>   
-                              </group>
-                            </page>
+                           
                             <page string="Comentarios de apoyo al reporte" autofocus="autofocus">
                               <group>
                                 <field name="comentarios_reporte" readonly="1" nolabel="1" >
@@ -256,7 +219,7 @@
         </record>
 
         <record id="graph_catax" model="ir.ui.view">
-          <field name="name">Gráficas reporte CATAX</field>
+          <field name="name">Gráficas Reporte Ciudadano CMAS</field>
           <field name="model">catax.catax</field>
           <field name="arch" type="xml">
             <graph string="Estatus de reportes" type="bar" stacked="True">
@@ -268,7 +231,7 @@
 
         <!-- Accion configuracion documental -->
         <record id="catax_action" model="ir.actions.act_window">
-            <field name="name">CATAX</field>
+            <field name="name">Reporte Ciudadano CMAS</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">catax.catax</field>
             <field name="view_type">form</field>
@@ -358,7 +321,7 @@
             <field name="arch" type="xml">
                 <form string="Generar informe" create="false" edit="false">
                     <group>
-                        <p>Genera un informe con los datos de los registros de CATAX.</p>
+                        <p>Genera un informe con los datos de los registros de Reporte Ciudadano CMAS.</p>
                     </group>
                     <group>
                         <field name="tipo_reporte" widget="radio" required="1"/> 
@@ -390,8 +353,8 @@
 <!--******************************************************************************************************-->
 
         <!-- Top menu item -->
-        <menuitem name="CATAX" id="catax.menu_root" sequence="2" groups="catax.operador,catax.operador_ejecutivo,catax.lectura" />
-        <menuitem name="CATAX"    id="catax_menu"         sequence="1" parent="catax.menu_root" groups="catax.operador,catax.operador_ejecutivo,catax.lectura" />
+        <menuitem name="Reporte Ciudadano CMAS" id="catax.menu_root" sequence="2" groups="catax.operador,catax.operador_ejecutivo,catax.lectura" />
+        <menuitem name="Reporte Ciudadano CMAS"    id="catax_menu"         sequence="1" parent="catax.menu_root" groups="catax.operador,catax.operador_ejecutivo,catax.lectura" />
         <menuitem name="Reportes" id="reporte_catax_menu" sequence="1" parent="catax_menu" action="catax_action"/>
         <menuitem name="Recanalizar reportes" id="recanalizadar"   parent="catax_menu" action="action_catax_recanalizar" groups="catax.operador,catax.operador_ejecutivo"/>
         <menuitem name="Generar informe" id="generar_reportes_catax" parent="catax_menu" action="action_reportes_catax" groups="base.group_system,catax.operador_ejecutivo" />

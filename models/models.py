@@ -26,8 +26,8 @@ class catax(models.Model):
     #info del reporte
     folio            = fields.Char(string= "#", track_visibility=True)
     folio_report     = fields.Char(string= "Folio", track_visibility=True)
-    categoria        = fields.Many2one("catalogos_catax", string="Categoria del registro", required=True ,track_visibility=True)    
-    sub_categoria    = fields.Many2one("subcategorias_catax", string="Sub-Categoria", required=True,track_visibility=True)
+    categoria        = fields.Many2one("catalogos_catax",ondelete="cascade", string="Categoria del registro", required=True ,track_visibility=True)    
+    sub_categoria    = fields.Many2one("subcategorias_catax",ondelete="cascade", string="Sub-Categoria", required=True,track_visibility=True)
     name             = fields.Char(string="Nombre de la persona que reporta", default="Anónimo", track_visibility=True)
 
     medio_reporte    = fields.Selection([('T', 'Telefonica'),('C', 'Correo'),('R', 'Redes sociales'),('O', 'Escrito/Oficio'), ('W', 'Web')], string="Medio del reporte", required=True, track_visibility=True)
@@ -39,11 +39,11 @@ class catax(models.Model):
     oficio_reporte   = fields.Binary("Oficio del reporte", track_visibility=True)
 
     municipio        = fields.Selection([('2087', 'Xalapa-Enriquez')], string='Municipio', default="2087", track_visibility=True)
-    colonia          = fields.Many2one('directions_utils.colonias', string="Colonia", domain="[('id_municipio','=', 2087)]",track_visibility=True)
+    colonia          = fields.char(string="Colonia",track_visibility=True)
     calle            = fields.Char(string="Calle", track_visibility=True)
     no_exterior      = fields.Char(string="No. Exterior", track_visibility=True)
     no_interior      = fields.Char(string="No. Interior", track_visibility=True)
-    cp               = fields.Many2one('directions_utils.codigos_postales', domain="[('id_municipio','=', 2087)]", string="Codigo postal", track_visibility=True)
+    #cp               = fields.Many2one('directions_utils.codigos_postales', domain="[('id_municipio','=', 2087)]", string="Codigo postal", track_visibility=True)
     referencia       = fields.Text(string="Referencia", track_visibility=True)
 
     #fotografiaReporte = fields.Binary(string="Foto")
@@ -61,9 +61,9 @@ class catax(models.Model):
     cant_coment_apoyo   = fields.Integer(string="Cantidad de apoyo" )
 
    # asignacion del reporte
-    area_categoria          = fields.Many2one("subcategorias_catax.relacion_categoria_areas", string="Área responsable")
-    id_depto_aux            = fields.Integer(related="area_categoria.id_depto.id")                                                                            
-    responsable_area        = fields.Many2one('hr.employee', string="Empleado asignado", track_visibility=True)
+    #area_categoria          = fields.Many2one("subcategorias_catax.relacion_categoria_areas", string="Área responsable")
+    #id_depto_aux            = fields.Integer(related="area_categoria.id_depto.id")                                                                            
+    #responsable_area        = fields.Many2one('hr.employee', string="Empleado asignado", track_visibility=True)
     comentario_seguimiento  = fields.Text(string="Comentarios de seguimiento (publico)", track_visibility=True) 
     comentario_area         = fields.Text(string="Comentarios de area", track_visibility=True) 
 
@@ -72,8 +72,6 @@ class catax(models.Model):
     fecha_finalizada        = fields.Date(string="Fecha finalizada", track_visibility=True)
     prioridad_reporte  = fields.Selection([('alta', 'Alta (24 horas)'), ('media', 'Media (72 horas)'), ('baja', 'Baja (Máximo 10 días)')], string="Prioridad")
 
-    report_cmas = fields.One2many('catax.catax_cmas', 'id_report', string=' Especificaciones CMAS', search="custom_search_report_cmas")
-    report_alumbrado = fields.One2many('catax.catax_alumbrado', 'id_report_alum', string=' Especificaciones Alumbrado')
 
 
     calificacion_atencion =  fields.Selection([('0', 'No registrada'),('1', 'Mala'),('2', 'Regular'),('3', 'Suficiente'),('4', 'Buena'),('5', 'Excelente')], default="0",string= 'Calificación de la atención recibida',readonly=True)
@@ -84,18 +82,6 @@ class catax(models.Model):
     comentarios_reportante  = fields.Text(string="Comentarios del usuario", readonly=True) 
     encuesta_contestada_reiterativo = fields.Integer(default=0)
 
-    #sipinna
-    nombre_padre            = fields.Char(string="Nombre del padre o tutor", track_visibility=True)
-    nombre_solicitante      = fields.Char(string="Nombre del solicitante", track_visibility=True)
-    direccion_instancia     = fields.Char(string="Dirección de la escuela, instancia o dependencia", track_visibility=True)
-    nombre_dependencia      = fields.Char(string="Dependencia o instancia desde donde se comunica", track_visibility=True)
-
-    #proteccion civil
-    personas_atrapadas =  fields.Selection([('0', 'No'),('1', 'Sí')],string= '¿Personas atrapadas?')
-    tipo_tanque =  fields.Selection([('cilindro', 'Cilindro'),('estacionario', 'Estacionario')], string= '¿Tipo de tanque?')
-    afectacion_vivienda =  fields.Selection([('0', 'Al interior'),('1', 'Al exterior')],string= '¿Afectación en vivienda?')
-    nombre_completo = fields.Char(string="Nombre completo", track_visibility=True)
-    
     #Atencion evidencia
     evidencia_atencion = fields.One2many('catax.evidencia_atencion', 'id_report', string='Evidencia de atención')
 
@@ -123,7 +109,6 @@ class catax(models.Model):
     historial_asignaciones = fields.One2many('catax.historial_asignacion_areas', 'id_report', track_visibility=True)
 
 
-    @api.multi
     def _get_desc_cort(self):  
         for ix in self:
             if ix.descripcion_reporte:
@@ -154,7 +139,6 @@ class catax(models.Model):
     def actualizarGlobal(self):
         print('YUN')
 
-    @api.one
     def _oficio_reporte_getFilename(self):
         self.filename_documento_identidad = "DOCUMENTO DE REPORTE.PDF" #" + self.folio +
 
@@ -190,49 +174,12 @@ class catax(models.Model):
                 values['correo'] = unidecode.unidecode(values['correo'])
                 values['correo'] = re.sub(u"[ñ]", 'n', values['correo'])
 
-            if 'colonia' in values:
-                
-                if type(values['colonia']) != int and type(values['colonia']) != float:
-                    col_id = http.request.env['directions_utils.colonias'].sudo().search([('&'),('colonias_capa', '=ilike', values['colonia']),('id_municipio','=',2087)], limit=1)
-
-                    if col_id:
-                        values['colonia'] = int(col_id.id)
-                    else:
-                        values['colonia'] = int(0)
-                if values['colonia'] == False and localStorage.getItem('colonia') != 'False' and localStorage.getItem('colonia') is not None:
-                    if values['colonia'] == False or values['colonia'] == "":
-                        values['colonia'] = int(localStorage.getItem('colonia'))
-                    localStorage.removeItem('colonia')
-            else:
-                values['colonia'] = int(0)
-                logger.info(localStorage.getItem('colonia'))
-                if localStorage.getItem('colonia') != 'False' and localStorage.getItem('colonia') is not None:
-                    if values['colonia'] == False or values['colonia'] == "":
-                        values['colonia'] = int(localStorage.getItem('colonia'))
-                    localStorage.removeItem('colonia')
-                elif values['colonia'] == False and localStorage.getItem('colonia') is not None:
-                    values['colonia'] = int(0)
-
-            if 'cp' in values:
-                if type(values['cp']) != int and type(values['cp']) != float:
-                    cp_id = http.request.env['directions_utils.codigos_postales'].sudo().search([('cp','=',values['cp'])])
-
-                    if cp_id:
-                        values['cp'] = int(cp_id.id)
-                    else:
-                        values['cp'] = int(0)
-                if values['cp'] == False and localStorage.getItem('cp') != 'False' and localStorage.getItem('cp') is not None:
-                    if values['cp'] == False or values['cp'] == "":
-                        values['cp'] = int(localStorage.getItem('cp'))
-                    localStorage.removeItem('cp')
+            
 
             if values['latitud'] == False and values['longitud'] == False:
                 values['latitud'] = "19.527425"
                 values['longitud'] = "-96.923950"
-            if values['colonia'] == 0:
-                values['colonia'] = http.request.env['directions_utils.colonias'].sudo().search([('colonias_capa', 'ilike','centro')], limit=1).id
-
-            values['municipio'] = '2087'
+            
 
 
             functions = self.env['subcategorias_catax.folios']
@@ -257,14 +204,12 @@ class catax(models.Model):
                 'id_report' : record.id,
                 'categoria' : record.categoria.id,
                 'sub_categoria' : record.sub_categoria.id,
-                'area_asignad': record.area_categoria.id,
-                'responsable_area': record.responsable_area.id,
+                
                 'comentario_seguimiento': record.comentario_seguimiento,
                 'comentario_area': record.comentario_area,
             })
         return record
         
-    @api.multi
     def write(self, vals):
         self.sanitizador_inyeccion(vals)
         localStorage = localStoragePy('catax_map')
@@ -325,50 +270,7 @@ class catax(models.Model):
             elif 'calle' in vals and vals['calle'] == False:
                 vals['calle'] = ''
 
-        if 'colonia' in vals:
-            if localStorage.getItem('colonia') != 'False' and localStorage.getItem('colonia') is not None:
-                if vals['colonia'] == False or vals['colonia'] == "":
-                    vals['colonia'] = int(localStorage.getItem('colonia'))
-                localStorage.removeItem('colonia')
-            elif vals['colonia'] == False and localStorage.getItem('colonia') is not None:
-                vals['colonia'] = int(0)
-        else:
-            if localStorage.getItem('colonia') != 'False' and localStorage.getItem('colonia') is not None:
-                vals['colonia'] = int(0)
-                vals['colonia'] = int(localStorage.getItem('colonia'))
-                localStorage.removeItem('colonia')
-            elif 'colonia' in vals and vals['colonia'] == False:
-                vals['colonia'] = int(0)
-
-        if 'cp' in vals:
-            if localStorage.getItem('cp') != 'False' and localStorage.getItem('cp') is not None:
-                if vals['cp'] == False or vals['cp'] == "":
-                    vals['cp'] = int(localStorage.getItem('cp'))
-                localStorage.removeItem('cp')
-            elif vals['cp'] == False:
-                vals['cp'] = int(0)
-        else:
-            if localStorage.getItem('cp') != 'False' and localStorage.getItem('cp') is not None:
-                
-                vals['cp'] = ''
-                vals['cp'] = int(localStorage.getItem('cp'))
-                localStorage.removeItem('cp')
-            elif 'cp' in vals and vals['cp'] == False:
-                vals['cp'] = int(0)
-
-        if 'municipio' in vals:
-            if localStorage.getItem('municipio') != 'False' and localStorage.getItem('municipio') is not None:
-                vals['municipio'] = str(localStorage.getItem('municipio'))
-                localStorage.removeItem('municipio')
-            elif vals['municipio'] == False:
-                vals['municipio'] = ''
-        else:
-            if localStorage.getItem('municipio') != 'False' and localStorage.getItem('municipio') is not None:
-                vals['municipio'] = ''
-                vals['municipio'] = str(localStorage.getItem('municipio'))
-                localStorage.removeItem('municipio')
-            elif 'municipio' in vals and vals['municipio'] == False:
-                vals['municipio'] = ''
+        
                 
         record = super(catax, self).write(vals)
         
@@ -378,8 +280,7 @@ class catax(models.Model):
                 'id_report' : self.id,
                 'categoria' : self.categoria.id,
                 'sub_categoria' : self.sub_categoria.id,                
-                'area_asignad': self.area_categoria.id,
-                'responsable_area': self.responsable_area.id,
+                
                 'comentario_seguimiento': self.comentario_seguimiento,
                 'comentario_area': self.comentario_area,
             })
@@ -432,7 +333,6 @@ class catax(models.Model):
             'context': context,
         }
 
-    @api.one
     def change_estatus(self, params):
         if str(params['estatus']) =='ATEN':
             if not self.cerrar_atencion:
@@ -581,7 +481,6 @@ class catax(models.Model):
                 texto = texto.replace("<", "").replace('>','').replace('/','').replace("\\",'').replace("&lt;",'').replace("&quot;",'').replace("&",'')
                 values[x] = texto
 
-    @api.one
     def change_canalizado(self, params):
         if self.recanalizar:
             if str(params['recanalizar']) == 'False':
@@ -621,7 +520,7 @@ class catax(models.Model):
 class comentarios_apoyo(models.Model):
     _name = 'catax.comentarios_apoyo'
 
-    id_catax     = fields.Many2one('catax.catax', string='Folio de reporte')
+    id_catax     = fields.Many2one('catax.catax', string='Folio de reporte',ondelete="cascade")
     folio        = fields.Char(string="Folio del reporte")
     comentarios  = fields.Char(string="Comentarios de apoyo")
     correo_apoyo = fields.Char(string="Correo electrónico de apoyo", default="")
@@ -642,12 +541,11 @@ class comentarios_apoyo(models.Model):
 
 class catax_evidencia_atencion(models.Model):
     _name = 'catax.evidencia_atencion'
-    id_report          = fields.Many2one("catax.catax", string="Reporte")
+    id_report          = fields.Many2one("catax.catax", string="Reporte",ondelete="cascade")
     nombre_archivo = fields.Char(string="Descripción")
     evidencia = fields.Binary(string="Evidencia de atención")
     filename = fields.Char()
 
-    @api.one
     @api.constrains('filename')
     def _check_filename(self):
         white_list = ['pdf','jpg','jpeg','png','xls','ods','mp4','avi','doc','docx']
@@ -665,29 +563,11 @@ class catax_evidencia_atencion(models.Model):
             if ext not in white_list:
                 raise exceptions.Warning("No puede subir un archivo con esa extensión, sólo puede subir  archivos de imagen o pdf.")
 
-class catax_cmas(models.Model):
-    _name = 'catax.catax_cmas'
-
-    id_report          = fields.Many2one("catax.catax", string="Reporte")
-    numero_registro    = fields.Char(string="No. de Cuenta (No. registro)")
-    numero_medidor     = fields.Char(string="No. de Medidor")
-    tipo_material      = fields.Selection([('metal', 'Metal'),('concreto', 'Concreto')], string="Tipo de material")
-
-class catax_alumbrado(models.Model):
-    _name = 'catax.catax_alumbrado'
-
-    id_report_alum       = fields.Many2one("catax.catax", string="Reporte")
-    no_luminaria    = fields.Char(string="Número de luminaria")
 
 
 class historial_asignacion_areas(models.Model):
     _name = 'catax.historial_asignacion_areas'
 
-    id_report               = fields.Many2one('catax.catax', string="Id de reporte")
-    categoria               = fields.Many2one("catalogos_catax", string="Categoria del registro")    
-    sub_categoria           = fields.Many2one("subcategorias_catax", string="Sub-Categoria")    
-    area_asignada           = fields.Many2one("subcategorias_catax.relacion_categoria_areas")
-    responsable_area        = fields.Many2one('hr.employee', string="Quien recibe", track_visibility=True)
     comentario_seguimiento  = fields.Text(string="Comentarios de seguimiento (publico)", track_visibility=True) 
     comentario_area         = fields.Text(string="Comentarios de area", track_visibility=True) 
 
@@ -796,7 +676,6 @@ class reportes_catax(models.TransientModel):
         except Exception as er:
             raise er        
 
-    @api.multi
     def generate_report_catax(self):
         #id de categorias 
         # 3 = alumbrado (ALUM), 4 = Mantenimiento vial (OBRA), 5 = Parques y Jardines (PARQ), 6 = Limpia Pub (RRSU), 7 = Arbolizado urbano (ARBO), 8 = Reforestacion (REFO), 9 =  Propuesta ciudadana(PROC), 10 = Agua (CMAS)

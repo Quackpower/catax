@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "catax",
+    'name': "reporte_ciudadano_coatepec_camas",
 
     'summary': """
         Short (1 phrase/line) summary of the module's purpose, used as

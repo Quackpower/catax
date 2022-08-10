@@ -221,24 +221,8 @@ class Catax(http.Controller):
 
 
             rec = catax.sudo().create(kw)
-            if 'CMAS' in kw:
-                cmas = {
-                    'tipo_material': kw['tipo_material'] if 'tipo_material' in kw else False,
-                    'numero_medidor': kw['numero_medidor'],
-                    'numero_registro': kw['numero_registro']
-                }
-                cmas['id_report'] = rec.id
-
-                agua = http.request.env['catax.catax_cmas'].sudo().create(cmas)
-
-            if 'numero_luminaria' in kw:
-                alum = {
-                    'no_luminaria': kw['numero_luminaria'] if 'numero_luminaria' in kw else False,
-                }
-                alum['id_report_alum'] = rec.id
-
-                agua = http.request.env['catax.catax_alumbrado'].sudo().create(alum)
-
+            
+           
             data["status"] = True
             data["folio"] = rec.folio_report
 
