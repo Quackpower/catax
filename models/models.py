@@ -35,8 +35,7 @@ class catax(models.Model):
     telefono         = fields.Char("Teléfono",  track_visibility=True)
     correo           = fields.Char(string="Correo electrónico",  default="")
     redsocial        = fields.Selection([('F', 'Facebook'),('T', 'Twitter')], string="Red social del reporte")
-    filename_oficio_reporte = fields.Char("Nombre oficio del reporte", readonly=True, store=False, compute='_oficio_reporte_getFilename', track_visibility=True)
-    oficio_reporte   = fields.Binary("Oficio del reporte", track_visibility=True)
+    
 
     municipio        = fields.Selection([('2087', 'Xalapa-Enriquez')], string='Municipio', default="2087", track_visibility=True)
     colonia          = fields.Char(string="Colonia",track_visibility=True)
