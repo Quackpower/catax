@@ -39,7 +39,7 @@ class catax(models.Model):
     oficio_reporte   = fields.Binary("Oficio del reporte", track_visibility=True)
 
     municipio        = fields.Selection([('2087', 'Xalapa-Enriquez')], string='Municipio', default="2087", track_visibility=True)
-    colonia          = fields.char(string="Colonia",track_visibility=True)
+    colonia          = fields.Char(string="Colonia",track_visibility=True)
     calle            = fields.Char(string="Calle", track_visibility=True)
     no_exterior      = fields.Char(string="No. Exterior", track_visibility=True)
     no_interior      = fields.Char(string="No. Interior", track_visibility=True)
