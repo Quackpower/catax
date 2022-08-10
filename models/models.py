@@ -106,7 +106,6 @@ class catax(models.Model):
     recanalizar = fields.Boolean(string="Recanalizar",  default=False)
     solicitar_intervencion_catastro = fields.Boolean(string="Solicitar intervención de Catastro",  default=False)
 
-    historial_asignaciones = fields.One2many('catax.historial_asignacion_areas', 'id_report', track_visibility=True)
 
 
     def _get_desc_cort(self):  
@@ -199,15 +198,7 @@ class catax(models.Model):
         except:
             pass  
 
-        if 'area_categoria' in values or 'responsable_area' in values or 'categoria' in values or 'sub_categoria' in values:
-            record.historial_asignaciones.sudo().create({
-                'id_report' : record.id,
-                'categoria' : record.categoria.id,
-                'sub_categoria' : record.sub_categoria.id,
-                
-                'comentario_seguimiento': record.comentario_seguimiento,
-                'comentario_area': record.comentario_area,
-            })
+        
         return record
         
     def write(self, vals):
@@ -274,16 +265,7 @@ class catax(models.Model):
                 
         record = super(catax, self).write(vals)
         
-        if 'area_categoria' in vals or 'responsable_area' in vals or 'categoria' in vals or 'sub_categoria' in vals:
-            
-            self.historial_asignaciones.sudo().create({
-                'id_report' : self.id,
-                'categoria' : self.categoria.id,
-                'sub_categoria' : self.sub_categoria.id,                
-                
-                'comentario_seguimiento': self.comentario_seguimiento,
-                'comentario_area': self.comentario_area,
-            })
+        
         return record
 
     def get_folio(self):
