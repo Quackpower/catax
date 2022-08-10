@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 from odoo import http, tools
-from odoo.addons.usuarios_externos.controllers.controllers import UsuariosExternos  # Import the class
 from werkzeug.wrappers import Response
 import json
 import re
