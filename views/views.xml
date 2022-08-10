@@ -91,7 +91,6 @@
                               <field name="calle" class="calle" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}" /> 
                               <field name="no_exterior" class="no_ext" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}"/> 
                               <field name="no_interior" class="no_int" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}"/> 
-                              <field invisible="1" name="cp" class="cp" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}"/> 
                               <field name="referencia" class="ref" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}"/>
                             </group>
                             <group>
