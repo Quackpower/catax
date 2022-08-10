@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-  <data>
-        <record model="ir.ui.view" id="catax_catax_form">
+        <record  id="catax_catax_form" model="ir.ui.view">
             <field name="name">Reporte Ciudadano CMAS</field>
             <field name="model">catax.catax</field>
             <field name="arch" type="xml">
@@ -42,9 +41,9 @@
                     </style>
                     <header>
                         <field name="estatus" widget="statusbar"/>
-                        <button string="En proceso" type="object" name="change_estatus" class="oe_highlight oe_read_only" context="{'estatus': 'enproceso'}" attrs="{'invisible': [('estatus', 'in', ['enproceso','ATEN'])]}" confirm="¿Desea pasar el reporte a en proceso?" groups="catax.cmas_analista,catax.tala_analista,catax.obra_analista,catax.parq_analista,catax.rrsu_analista,catax.otro,catax.arbo_analista,catax.alum_analista,catax.reclamacion_dan,catax.protec_ent_eco,catax.protec_ent_eco_ejecutivo,catax.reclamacion_dan_ejecutivo,catax.alum_ejecutivo,catax.arbo_ejecutivo,catax.otro_ejecutivo,catax.rrsu_ejecutivo,catax.parq_ejecutivo,catax.obra_ejecutivo,catax.tala_ejecutivo,catax.sipinna,catax.sipinna_ejecutivo,catax.movilidad_urbana_ejecutivo,catax.movilidad_urbana,catax.inspeccion_contrucciones_ejecutivo,catax.inspeccion_contrucciones,catax.dif_ejecutivo,catax.dif,catax.mercados_ejecutivo,catax.mercados,catax.covp_ejecutivo,catax.covp,catax.coes_ejecutivo,catax.coes,catax.proteccion_civil_ejecutivo,catax.proteccion_civil,catax.comu_ejecutivo,catax.comu_analista,catax.reci_ejecutivo,catax.reci_analista,catax.segu_ejecutivo,catax.segu_analista" />
-                        <button string="Atendido" type="object" name="change_estatus" class="oe_highlight oe_read_only" context="{'estatus': 'ATEN'}" attrs="{'invisible': [('estatus', 'in', ['R','ATEN'])]}" confirm="¿Desea pasar el reporte a atendido?"                  groups="catax.cmas_analista,catax.tala_analista,catax.obra_analista,catax.parq_analista,catax.rrsu_analista,catax.otro,catax.arbo_analista,catax.alum_analista,catax.reclamacion_dan,catax.protec_ent_eco,catax.protec_ent_eco_ejecutivo,catax.reclamacion_dan_ejecutivo,catax.alum_ejecutivo,catax.arbo_ejecutivo,catax.otro_ejecutivo,catax.rrsu_ejecutivo,catax.parq_ejecutivo,catax.obra_ejecutivo,catax.tala_ejecutivo,catax.sipinna,catax.sipinna_ejecutivo,catax.movilidad_urbana_ejecutivo,catax.movilidad_urbana,catax.inspeccion_contrucciones_ejecutivo,catax.inspeccion_contrucciones,catax.dif_ejecutivo,catax.dif,catax.mercados_ejecutivo,catax.mercados,catax.covp_ejecutivo,catax.covp,catax.coes_ejecutivo,catax.coes,catax.proteccion_civil_ejecutivo,catax.proteccion_civil,catax.comu_ejecutivo,catax.comu_analista,catax.reci_ejecutivo,catax.reci_analista,catax.segu_ejecutivo,catax.segu_analista"/>
-                        <button string="Recanalizado" type="object" name="change_canalizado" class="oe_highlight oe_read_only" context="{'recanalizar': False}" attrs="{'invisible': [('recanalizar', '!=', True)]}" confirm="¿Desea finalizar la recanalización del registro?" groups="catax.operador,catax.protec_ent_eco_ejecutivo,catax.reclamacion_dan_ejecutivo,catax.alum_ejecutivo,catax.arbo_ejecutivo,catax.otro_ejecutivo,catax.rrsu_ejecutivo,catax.parq_ejecutivo,catax.obra_ejecutivo,catax.tala_ejecutivo,catax.sipinna_ejecutivo,catax.movilidad_urbana_ejecutivo,catax.inspeccion_contrucciones_ejecutivo,catax.dif_ejecutivo" />
+                        <button string="En proceso" type="object" name="change_estatus" class="oe_highlight oe_read_only" context="{'estatus': 'enproceso'}" attrs="{'invisible': [('estatus', 'in', ['enproceso','ATEN'])]}" confirm="¿Desea pasar el reporte a en proceso?" groups="catax.cmas_analista,catax.cmas_ejecutivo" />
+                        <button string="Atendido" type="object" name="change_estatus" class="oe_highlight oe_read_only" context="{'estatus': 'ATEN'}" attrs="{'invisible': [('estatus', 'in', ['R','ATEN'])]}" confirm="¿Desea pasar el reporte a atendido?"                  groups="catax.cmas_analista,catax.cmas_ejecutivo"/>
+                        <button string="Recanalizado" type="object" name="change_canalizado" class="oe_highlight oe_read_only" context="{'recanalizar': False}" attrs="{'invisible': [('recanalizar', '!=', True)]}" confirm="¿Desea finalizar la recanalización del registro?" groups="catax.cmas_analista,catax.cmas_ejecutivo" />
                     </header>
                     <sheet>
                       <notebook>
@@ -167,7 +166,7 @@
                             </group>
                           
 
-                          <group string="Valoración" groups="base.group_system,catax.protec_ent_eco_ejecutivo,catax.reclamacion_dan_ejecutivo,catax.alum_ejecutivo,catax.arbo_ejecutivo,catax.otro_ejecutivo,catax.rrsu_ejecutivo,catax.parq_ejecutivo,catax.obra_ejecutivo,catax.tala_ejecutivo,catax.operador_ejecutivo,catax.sipinna_ejecutivo,catax.cmas_ejecutivo,catax.movilidad_urbana_ejecutivo,catax.inspeccion_contrucciones_ejecutivo,catax.dif_ejecutivo,catax.mercados_ejecutivo,catax.covp_ejecutivo,catax.coes_ejecutivo,catax.proteccion_civil_ejecutivo,catax.comu_ejecutivo,catax.reci_ejecutivo,catax.segu_ejecutivo,catax.lectura">
+                          <group string="Valoración" groups="base.group_system,catax.cmas_ejecutivo">
                             <group>
                                 <field name="calificacion_atencion" widget="priority"/>   
                               </group>
@@ -264,38 +263,7 @@
             <field name="act_window_id" ref="catax_action"/>
         </record>
 
-        <!-- <record model="ir.ui.view" id="catax_custom_kanban">
-          <field name="name">Estadistica de reportes</field>
-          <field name="model">hr.department</field>
-          <field eval="200" name="priority"/>
-          <field name="arch" type="xml">
-            <kanban create="false">
-              <field name="name"/>
-              <field name="request_total_catax"/>
-              <field name="request_resolved_catax"/>
-              <templates>
-                <t t-name="kanban-box">
-                  <div class="oe_module_vignette">
-                    <div class="oe_module_desc">
-                      <h3 class="o_kanban_record_title" style="font-size: 16px;">Area asignada:</h3>
-                      <p class="oe_module_name" style="font-size: 14px">
-                        <field name="name"/>
-                        <br/>
-                      </p>
-                      <field name="request_resolved_catax" widget="gauge_extend" options="
-                                             {'max_field': 'request_total_catax',
-                                              'type': 'percent',
-                                              'style': 'width:160px; height: 120px; margin: 5px auto; display: block !important;',
-                                              'bottom_font_size': 12,
-                                              'boundary_font_size': 10,
-                                              'show_portion': True}" />
-                    </div>
-                  </div>
-                </t>
-              </templates>
-            </kanban>
-          </field>
-        </record> -->
+        
 
         <record id="action_catax_panel_control_action_window" model="ir.actions.server">
           <field name="name">Panel de control</field>
@@ -360,5 +328,5 @@
         <menuitem name="Generar informe" id="generar_reportes_catax" parent="catax_menu" action="action_reportes_catax" groups="base.group_system,catax.operador_ejecutivo" />
         <!-- menu categories groups="configsolicitudes.contralor,configsolicitudes.analista"
         <menuitem name="Estadísticas de efectividad" id="estadistica_catax_menu" parent="catax_menu" action="action_catax_panel_control_action_window" />-->
-  </data>
+ 
 </odoo>
