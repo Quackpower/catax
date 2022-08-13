@@ -106,36 +106,11 @@ class Catax(http.Controller):
         if 'calle' in km:
             localStorage.setItem('calle', km['calle'])
 
-        cachedict = {}
-
-        def strrep(orig, repdict):
-            for k,v in repdict.items():
-                if k in cachedict:
-                    pattern = cachedict[k]
-                else:
-                    pattern = re.compile(k, re.IGNORECASE)
-                    cachedict[k] = pattern
-                orig = pattern.sub(v, orig)
-            return orig
-
-        try:
             
-            if 'colonia' in km:
-                localStorage.setItem('colonia', km['colonia'])
-                logger.info(localStorage.getItem('colonia'))
+        if 'colonia' in km:
+            localStorage.setItem('colonia', km['colonia'])
                 
 
-        except ValueError as er:
-            data['status'] = False
-            data['error'] = str(er)
-
-        except Exception as er:
-            data['status'] = False
-            data['error'] = str(er)
-
-        
-
-        
         
         return Response(json.dumps(data), content_type='application/json;charset=utf-8', status=200)
 

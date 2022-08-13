@@ -162,6 +162,11 @@ class catax(models.Model):
             if values['calle']=="undefined":
                 values['calle'] = False
 
+            if 'colonia' in values:
+                if values['colonia']==False and localStorage.getItem('colonia') != 'False' and localStorage.getItem('colonia') is not None:
+                    values['colonia'] = str(localStorage.getItem('colonia'))
+                    localStorage.removeItem('colonia')
+
             if 'correo' in values and values['correo']:
                 values['correo'] = unidecode.unidecode(values['correo'])
                 values['correo'] = re.sub(u"[ñ]", 'n', values['correo'])
@@ -169,8 +174,8 @@ class catax(models.Model):
             
 
             if values['latitud'] == False and values['longitud'] == False:
-                values['latitud'] = "19.527425"
-                values['longitud'] = "-96.923950"
+                values['latitud'] = "19.4544924"
+                values['longitud'] = "-96.9601074"
             
 
 
@@ -253,6 +258,20 @@ class catax(models.Model):
                 localStorage.removeItem('calle')
             elif 'calle' in vals and vals['calle'] == False:
                 vals['calle'] = ''
+
+        if 'colonia' in vals:
+            if localStorage.getItem('colonia') != 'False' and localStorage.getItem('colonia') is not None:
+                if vals['colonia'] == False or vals['colonia'] == "":
+                    vals['colonia'] = str(localStorage.getItem('colonia'))
+                localStorage.removeItem('colonia')
+            elif 'colonia' in vals and vals['colonia'] == False and localStorage.getItem('colonia') is not None:
+                vals['colonia'] = ''
+        else:
+            if localStorage.getItem('colonia') != 'False' and localStorage.getItem('colonia') is not None:
+                vals['colonia'] = str(localStorage.getItem('colonia'))
+                localStorage.removeItem('colonia')
+            elif 'colonia' in vals and vals['colonia'] == False:
+                vals['colonia'] = ''
 
         
                 
