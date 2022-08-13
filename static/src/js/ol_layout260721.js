@@ -213,7 +213,32 @@ function traerMapa(con_capa){
                     map.addLayer(MapLayer);
     
                     
+                    var saveUrl = "catax/getdata/";
+                    var f = new FormData();
     
+                    f.append("latitud", prettyCoord[1]);
+                    f.append("longitud", prettyCoord[0]);
+                    f.append("direccion", createCharge[0]['display_name']);
+                    f.append("colonia", localStorage.getItem('colonia'));
+                    f.append("calle", createCharge[0]['address']['road'] );
+                    
+                    var settings = {
+                        "async": true,
+                        "crossDomain": true,
+                        "url": serv+saveUrl,
+                        "method": "POST",
+                        "processData": false,
+                        "contentType": false,
+                        "mimeType": "multipart/form-data",
+                        "data": f
+                    }
+    
+                    $.ajax(settings).done(function(response) {
+                        console.log('llamado');
+                        responseSend = JSON.parse(response);
+                    });
+    
+
                     if(onchangenedded && dotrdy){
                         dotrdy = false;
                         $(".ref").val($(".ref").val()+" ").trigger('change'); //horrible hack para mandar un value a guardar y que tome todos los datos del mapa

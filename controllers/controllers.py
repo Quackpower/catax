@@ -105,8 +105,6 @@ class Catax(http.Controller):
             localStorage.setItem('direccion', km['direccion'])
         if 'calle' in km:
             localStorage.setItem('calle', km['calle'])
-        localStorage.setItem('estado', 30)
-        localStorage.setItem('municipio', 2087)
 
         cachedict = {}
 
