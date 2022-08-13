@@ -110,7 +110,8 @@ class Catax(http.Controller):
         if 'colonia' in km:
             localStorage.setItem('colonia', km['colonia'])
                 
-
+        data['status']=True
+        data['data'] = str(localStorage.getItem('colonia'))
         
         return Response(json.dumps(data), content_type='application/json;charset=utf-8', status=200)
 
