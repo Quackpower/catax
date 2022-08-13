@@ -327,8 +327,8 @@ class catax(models.Model):
             'context': context,
         }
 
-    def change_estatus(self, params):
-        if str(params['estatus']) =='ATEN':
+    def change_estatus(self, context=None):
+        if str(context['estatus']) =='ATEN':
             if not self.cerrar_atencion:
                 raise exceptions.Warning("Imposible pasar el reporte a atendido sin seleccionar el cierre de atención.")
             self.fecha_finalizada= datetime.now().astimezone(pytz.timezone('Mexico/General'))
@@ -338,9 +338,9 @@ class catax(models.Model):
             if not self.comentario_seguimiento:
                 raise exceptions.Warning("Debe escribir un comentario de seguimiento para retroalimentación del ciudadano.")
             texto = 'Su reporte con folio <b>' + self.folio_report + '</b> de la categoría <i>' + self.categoria.display_name + '</i> ha sido atendido. <br/>Con las siguientes anotaciones: </br><p>'+self.comentario_seguimiento+'</p></br>'
-            self.send_correcoelect(texto, encabezado, False,True,fol_link)
+            #self.send_correcoelect(texto, encabezado, False,True,fol_link)
             logger.info('4')
-            self.encuesta_enviada = True            
+            #self.encuesta_enviada = True            
         self.estatus = str(params['estatus'])
 
     def mandarmsjs_creacion(self, folio, id_subcatgoria, email_aux):
