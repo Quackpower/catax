@@ -76,14 +76,12 @@
                                 
                               </group>
                           </group>
-                          <t name="catax_catax_form" >
-                              <t t-call="website.layout">
+                          <group>
                                   <link rel="stylesheet" href="/catax/static/src/js/ol.css"/>
                                   <div id="map" class="map" style="height: 600px; width: 100%;"></div>
                                   <script type="text/javascript" src="/catax/static/src/js/ol.js"/>
                                   <script type="text/javascript" src="/catax/static/src/js/ol_layout260721.js"/>
-                              </t>
-                          </t>
+                          </group>
                           <group string="Ubicación del reporte">
                             <group class="direccion_find">
                               <field name="colonia" class="colonia" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}" /> 
