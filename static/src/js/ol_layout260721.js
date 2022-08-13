@@ -1,5 +1,5 @@
 //var serv = "https://reportescatax.xalapa.gob.mx/";
-var serv = "http://140.82.0.198/";
+var serv = "http://140.82.0.198:8069/";
 //var serv = "http://localhost:8069/"
 var map;
 var onchangenedded=false;
@@ -221,7 +221,7 @@ function traerMapa(con_capa){
                     f.append("direccion", createCharge[0]['display_name']);
                     f.append("colonia", localStorage.getItem('colonia'));
                     f.append("calle", createCharge[0]['address']['road'] );
-                    
+
                     var settings = {
                         "async": true,
                         "crossDomain": true,
