@@ -219,7 +219,7 @@ function traerMapa(con_capa){
                     f.append("latitud", prettyCoord[1]);
                     f.append("longitud", prettyCoord[0]);
                     f.append("direccion", createCharge[0]['display_name']);
-                    f.append("colonia", localStorage.getItem('colonia'));
+                    f.append("colonia", createCharge[0]['address']['neighbourhood']);
                     f.append("calle", createCharge[0]['address']['road'] );
 
                     var settings = {
