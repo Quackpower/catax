@@ -169,9 +169,7 @@ function traerMapa(con_capa){
                 } catch (ex) {}
             });
     
-                if (feature.get('desc') != undefined) {
-    
-                } else {
+                
                     
     
                     $('[name*="calle"]').val(createCharge[0]['address']['road'])
@@ -222,7 +220,7 @@ function traerMapa(con_capa){
                     }
                 }
             
-        }
+        
     });
     
 
