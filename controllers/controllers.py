@@ -112,6 +112,7 @@ class Catax(http.Controller):
                 
         data['status']=True
         data['data'] = str(localStorage.getItem('colonia'))
+        data['data2'] = str(localStorage.getItem('calle'))
         
         return Response(json.dumps(data), content_type='application/json;charset=utf-8', status=200)
 
