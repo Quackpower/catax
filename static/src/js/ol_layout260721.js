@@ -173,7 +173,7 @@ function traerMapa(con_capa){
                     
     
                     $('[name*="calle"]').val(createCharge[0]['address']['road'])
-                    $('[name*="colonia"]').val(createCharge[0]['address']['neighborhood'])
+                    $('[name*="colonia"]').val(createCharge[0]['address']['neighbourhood'])
     
                     direccion = createCharge[0]['display_name'];
     

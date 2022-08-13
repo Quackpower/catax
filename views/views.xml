@@ -92,7 +92,7 @@
                               <field name="no_interior" class="no_int" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}"/> 
                               <field name="referencia" class="ref" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}"/>
                             </group>
-                            <group>
+                            <group invisible="1">
                               <field name="latitud" class="lat"  attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}"/>
                               <field name="longitud" class="lon"  attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}" />
                               <field name="address"  attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}"/>
