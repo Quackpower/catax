@@ -344,7 +344,7 @@ class catax(models.Model):
         self.estatus = str(context['estatus'])
 
     def estatus_en_proceso(self):    
-        self.estatus = str(context['enproceso'])
+        self.estatus = 'enproceso'
 
     def estatus_atendido(self):
         if not self.cerrar_atencion:
@@ -357,7 +357,7 @@ class catax(models.Model):
         texto = 'Su reporte con folio <b>' + self.folio_report + '</b> ha sido atendido. <br/>Con las siguientes anotaciones: </br><p>'+self.comentario_seguimiento+'</p></br>'
         self.send_correcoelect(texto, encabezado, False,True,fol_link)
   
-        self.estatus = str(context['ATEN'])
+        self.estatus = 'ATEN'
 
     def mandarmsjs_creacion(self, folio, id_subcatgoria, email_aux):
         aux_subcat= self.env['subcategorias_catax'].search([('id', '=', id_subcatgoria.id)])
