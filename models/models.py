@@ -355,7 +355,7 @@ class catax(models.Model):
         if not self.comentario_seguimiento:
             raise exceptions.Warning("Debe escribir un comentario de seguimiento para retroalimentación del ciudadano.")
         texto = 'Su reporte con folio <b>' + self.folio_report + '</b> ha sido atendido. <br/>Con las siguientes anotaciones: </br><p>'+self.comentario_seguimiento+'</p></br>'
-        self.send_correcoelect(texto, encabezado, False,True,fol_link)
+        self.send_correcoelect(texto, encabezado, False,True)
   
         self.estatus = 'ATEN'
 
@@ -405,9 +405,9 @@ class catax(models.Model):
                 
                 if attachment_ids:
                     template.write({'attachment_ids': [(6, 0, attachment_ids)]})
-                    textbody = textbody +  " Se adjunta al presente correo electrónico la documentación digital correspondiente como evidencia. <br/> Asimismo, le invitamos a valorar el servicio en el siguiente enlace " + link_encuesta
+                    textbody = textbody +  " Se adjunta al presente correo electrónico la documentación digital correspondiente como evidencia. <br/>  " 
                 else:
-                    textbody =  textbody + " Le invitamos a valorar el servicio en el siguiente enlace " + link_encuesta
+                    textbody =  textbody 
             except Exception as er:
                 hasFileAttach=False
                 raise Warning("No se puede enviar correo de contestación, error en la recuperación del archivo - " + str(er))
