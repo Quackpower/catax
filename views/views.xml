@@ -131,28 +131,25 @@
                           <group string="Atención y seguimiento." >
                             <group>
                               
-                              <field name="prioridad_reporte" attrs="{'readonly': ['|','|','|',('is_analist', '=', 'False'),('estatus', '=', 'ATEN') , '&amp;',  ('permisos_extendidos_operador', '=', True),('cve_categoria', '!=', 'PROC'), '&amp;' , ('is_operador','=',True),('permisos_extendidos_operador','=',False)]}" />
-                              <field name="comentario_seguimiento" attrs="{'readonly': ['|','|','|',('is_analist', '=', 'False'),('estatus', '=', 'ATEN') , '&amp;',  ('permisos_extendidos_operador', '=', True),('cve_categoria', '!=', 'PROC'), '&amp;' , ('is_operador','=',True),('permisos_extendidos_operador','=',False)]}" />
-                              <field name="comentario_area" attrs="{'readonly': ['|','|','|',('is_analist', '=', 'False'),('estatus', '=', 'ATEN') , '&amp;',  ('permisos_extendidos_operador', '=', True),('cve_categoria', '!=', 'PROC'), '&amp;' , ('is_operador','=',True),('permisos_extendidos_operador','=',False)]}" />
+                              <field name="prioridad_reporte" />
+                              <field name="comentario_seguimiento" />
+                              <field name="comentario_area"  />
                             </group>
 
                             
 
                             <group>
-                              <field name="cerrar_atencion" attrs="{'readonly': ['|','|','|',('is_analist', '=', 'False'),('estatus', '=', 'ATEN') , '&amp;',  ('permisos_extendidos_operador', '=', True),('cve_categoria', '!=', 'PROC'), '&amp;' , ('is_operador','=',True),('permisos_extendidos_operador','=',False)]}" /> 
-                              <field name="fecha_estimada" attrs="{'readonly': ['|','|','|',('is_analist', '=', 'False'),('estatus', '=', 'ATEN') , '&amp;',  ('permisos_extendidos_operador', '=', True),('cve_categoria', '!=', 'PROC'), '&amp;' , ('is_operador','=',True),('permisos_extendidos_operador','=',False)]}" /> 
+                              <field name="cerrar_atencion"  /> 
+                              <field name="fecha_estimada" /> 
                               <field name="fecha_finalizada" readonly="1" /> 
-                              <field name="recanalizar" widget="checkbox" attrs="{'readonly': ['|','|','|',('is_analist', '=', 'False'),('estatus', '=', 'ATEN') , '&amp;',  ('permisos_extendidos_operador', '=', True),('cve_categoria', '!=', 'PROC'), '&amp;' , ('is_operador','=',True),('permisos_extendidos_operador','=',False)]}" />
-                              <field name="solicitar_intervencion_catastro" widget="checkbox" attrs="{'readonly': ['|','|','|',('is_analist', '=', 'False'),('estatus', '=', 'ATEN') , '&amp;',  ('permisos_extendidos_operador', '=', True),('cve_categoria', '!=', 'PROC'), '&amp;' , ('is_operador','=',True),('permisos_extendidos_operador','=',False)]}" />
-
                             </group>
 
                             
 
                           </group>
 
-                           <group string="Evidencia de atención" attrs="{'readonly': ['|','|','|',('is_analist', '=', 'False'),('estatus', '=', 'ATEN') , '&amp;',  ('permisos_extendidos_operador', '=', True),('cve_categoria', '!=', 'PROC'), '&amp;' , ('is_operador','=',True),('permisos_extendidos_operador','=',False)]}" >
-                                <field name="evidencia_atencion"  mode="tree" attrs="{'readonly': ['|','|','|',('is_analist', '=', 'False'),('estatus', '=', 'ATEN') , '&amp;',  ('permisos_extendidos_operador', '=', True),('cve_categoria', '!=', 'PROC'), '&amp;' , ('is_operador','=',True),('permisos_extendidos_operador','=',False)]}" >
+                           <group string="Evidencia de atención" >
+                                <field name="evidencia_atencion"  mode="tree" >
                                   <tree editable="bottom">
                                     <field name="nombre_archivo" required="1"/>
                                     <field name="evidencia" widget="binary" filename="filename" required="1"/>
