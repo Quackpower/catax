@@ -41,9 +41,9 @@
                     </style>
                     <header>
                         <field name="estatus" widget="statusbar"/>
-                        <button string="En proceso" type="object" name="change_estatus" class="oe_highlight oe_read_only" context="{'estatus': 'enproceso'}" attrs="{'invisible': [('estatus', 'in', ['enproceso','ATEN'])]}" confirm="¿Desea pasar el reporte a en proceso?" groups="catax.cmas_analista,catax.cmas_ejecutivo" />
-                        <button string="Atendido" type="object" name="change_estatus" class="oe_highlight oe_read_only" context="{'estatus': 'ATEN'}" attrs="{'invisible': [('estatus', 'in', ['R','ATEN'])]}" confirm="¿Desea pasar el reporte a atendido?"                  groups="catax.cmas_analista,catax.cmas_ejecutivo"/>
-                        <button string="Recanalizado" type="object" name="change_canalizado" class="oe_highlight oe_read_only" context="{'recanalizar': False}" attrs="{'invisible': [('recanalizar', '!=', True)]}" confirm="¿Desea finalizar la recanalización del registro?" groups="catax.cmas_analista,catax.cmas_ejecutivo" />
+                        <button string="En proceso" type="object" name="estatus_en_proceso" class="oe_highlight oe_read_only" context="{'estatus': 'enproceso'}" attrs="{'invisible': [('estatus', 'in', ['enproceso','ATEN'])]}" confirm="¿Desea pasar el reporte a en proceso?" groups="catax.cmas_analista,catax.cmas_ejecutivo" />
+                        <button string="Atendido" type="object" name="estatus_atendido" class="oe_highlight oe_read_only" context="{'estatus': 'ATEN'}" attrs="{'invisible': [('estatus', 'in', ['R','ATEN'])]}" confirm="¿Desea pasar el reporte a atendido?"                  groups="catax.cmas_analista,catax.cmas_ejecutivo"/>
+                        
                     </header>
                     <sheet>
                       <notebook>
