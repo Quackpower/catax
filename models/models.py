@@ -338,7 +338,7 @@ class catax(models.Model):
             if not self.comentario_seguimiento:
                 raise exceptions.Warning("Debe escribir un comentario de seguimiento para retroalimentación del ciudadano.")
             texto = 'Su reporte con folio <b>' + self.folio_report + '</b> de la categoría <i>' + self.categoria.display_name + '</i> ha sido atendido. <br/>Con las siguientes anotaciones: </br><p>'+self.comentario_seguimiento+'</p></br>'
-            #self.send_correcoelect(texto, encabezado, False,True,fol_link)
+            self.send_correcoelect(texto, encabezado, False,True,fol_link)
             logger.info('4')
             #self.encuesta_enviada = True            
         self.estatus = str(context['estatus'])
@@ -363,8 +363,8 @@ class catax(models.Model):
         aux_subcat= self.env['subcategorias_catax'].search([('id', '=', id_subcatgoria.id)])
         categoria       = aux_subcat.categoria.name
         sub_categoria   = aux_subcat.name
-        encabezado = 'Reporte registrado en CATAX con folio ' + folio
-        texto = 'Su reporte de categoría <i>' + categoria + '</i> con subcategoría <i>' + sub_categoria + '</i> ha sido registrado correctamente en el Centro de Atención Telefónica del Ayuntamiento de  Xalapa (CATAX) con el siguiente folio:  <br/>  <h2 style="color:#a53420;text-align:center;"><b>' + folio + '</b></h2>  Mediante este número de folio, podrá darle seguimiento a su reporte en https://catax.xalapa.gob.mx/consulta '
+        encabezado = 'Reporte registrado en CMAS con folio ' + folio
+        texto = 'Su reporte <i>' + sub_categoria + '</i> ha sido registrado correctamente en el Sistema de reportes CMAS con el siguiente folio:  <br/>  <h2 style="color:#a53420;text-align:center;"><b>' + folio + '</b></h2>  Mediante este número de folio, podrá darle seguimiento a su reporte.'
         self.send_correcoelect(texto, encabezado, email_aux,False)
 
     def send_correcoelect(self, textbody, asunto, email_aux,adjuntar_evidencia,link_encuesta=False):
@@ -514,7 +514,7 @@ class catax(models.Model):
                     message_bytes = str(x.folio_report).encode('ascii')
                     fol_link = "https://catax.xalapa.gob.mx/califica/?fol=" + str(base64.b64encode(message_bytes)).split("'")[1]
                     encabezado = 'Encuesta de satisfacción CATAX'
-                    texto = 'Su reporte con folio <b>' + x.folio_report + '</b> de la categoría <i>' + x.categoria.display_name + '</i> fue atendido el pasado '+datetime.strptime(x.fecha_finalizada, "%Y-%m-%d").strftime("%d-%m-%Y")+'.<br/>Con las siguientes anotaciones: <br/> <p>'+self.comentario_seguimiento+'</p></br> Con su opinión contribuye a mejorar este servicio, por ello le invitamos nuevamente a responder la encuesta de satisfacción en el siguiente enlace  </br> '+ fol_link
+                    texto = 'Su reporte con folio <b>' + x.folio_report + '</b> de la categoría <i>' + x.categoria.display_name + '</i> fue atendido el pasado '+datetime.strptime(x.fecha_finalizada, "%Y-%m-%d").strftime("%d-%m-%Y")+'.<br/>Con las siguientes anotaciones: <br/> <p>'+self.comentario_seguimiento+'</p></br> '
                     
                     self.send_correcoelect(texto, encabezado, x.correo,False,False)
 
