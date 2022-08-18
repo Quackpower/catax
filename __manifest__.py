@@ -29,7 +29,7 @@
         'reports/reporte_individual.xml',
         'views/views.xml',
         'views/templates.xml',
-        'views/email_template_notificaciones_catax.xml', 
+        'views/email_template_notificaciones_reporte.xml', 
     ],
     # only loaded in demonstration mode
     'demo': [

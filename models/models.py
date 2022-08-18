@@ -368,7 +368,7 @@ class catax(models.Model):
         self.send_correcoelect(texto, encabezado, email_aux,False)
 
     def send_correcoelect(self, textbody, asunto, email_aux,adjuntar_evidencia,link_encuesta=False):
-        template_id = self.env.ref('catax.email_template_notificaciones_catax', False)
+        template_id = self.env.ref('catax.email_template_notificaciones_reporte', False)
         if not email_aux:
             correo_enviar =  self.correo
         else:
