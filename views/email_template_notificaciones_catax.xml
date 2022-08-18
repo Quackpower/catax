@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-        <record id="email_template_notificaciones_catax" model="mail.template">
+        <record id="email_template_notificaciones_reporte" model="mail.template">
             <field name="name">Email Template</field>
             <field name="subject">${ctx['asunto_correo']|safe}</field>
             <field name="email_to">${ctx['correo']|safe}</field>
@@ -264,7 +264,7 @@
                                                                         <td valign="top" class="specbundle">
                                                                           <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                                                             <tbody>
-                                                                              
+                                                                              <img src="/catax/static/images/logo.png" style="width:200px;"/>
                                                                             </tbody>
                                                                           </table>
                                                                         </td>
