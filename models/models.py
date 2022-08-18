@@ -394,7 +394,7 @@ class catax(models.Model):
 
                     attachment = {
                         'name': str(x.filename),
-                        'datas_fname': x.filename,
+                        'store_fname': x.filename,
                         'res_model': 'catax.evidencia_atencion',
                         'datas':x.evidencia,
                         'type': 'binary'
