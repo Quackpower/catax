@@ -299,8 +299,8 @@
 <!--******************************************************************************************************-->
 
         <!-- Top menu item -->
-        <menuitem name="Reporte Ciudadano CMAS" id="catax.menu_root" sequence="2" groups="catax.operador,catax.operador_ejecutivo,catax.lectura" />
-        <menuitem name="Reporte Ciudadano CMAS"    id="catax_menu"         sequence="1" parent="catax.menu_root" groups="catax.operador,catax.operador_ejecutivo,catax.lectura" />
+        <menuitem name="Reporte Ciudadano CMAS" id="catax.menu_root" sequence="2" groups="catax.operador,catax.operador_ejecutivo,catax.lectura,base.group_system" />
+        <menuitem name="Reporte Ciudadano CMAS"    id="catax_menu"         sequence="1" parent="catax.menu_root" groups="catax.operador,catax.operador_ejecutivo,catax.lectura,base.group_system" />
         <menuitem name="Reportes" id="reporte_catax_menu" sequence="1" parent="catax_menu" action="catax_action"/>
         <menuitem name="Recanalizar reportes" id="recanalizadar"   parent="catax_menu" action="action_catax_recanalizar" groups="catax.operador,catax.operador_ejecutivo"/>
         <menuitem name="Generar informe" id="generar_reportes_catax" parent="catax_menu" action="action_reportes_catax" groups="base.group_system,catax.operador_ejecutivo" />
