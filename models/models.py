@@ -373,7 +373,7 @@ class catax(models.Model):
             correo_enviar =  self.correo
         else:
             correo_enviar = email_aux
-        if self.env['ir.config_parameter'].search([('key', '=', 'web.base.url')]).value != 'http://reportescatax.xalapa.gob.mx':
+        if self.env['ir.config_parameter'].search([('key', '=', 'web.base.url')]).value != 'http://sirac.cmas-coatepec.gob.mx':
             msj_prueba = asunto + ' (Este correo fue mandado desde un entorno de pruebas)'
         else:
             msj_prueba = asunto   
