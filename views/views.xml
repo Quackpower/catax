@@ -159,7 +159,7 @@
                             </group>
                           
 
-                          <group string="Valoración" groups="base.group_system,catax.cmas_ejecutivo">
+                          <group string="Valoración" groups="base.group_system,catax.cmas_ejecutivo" invisible="1">
                             <group>
                                 <field name="calificacion_atencion" widget="priority"/>   
                               </group>
@@ -299,7 +299,7 @@
 <!--******************************************************************************************************-->
 
         <!-- Top menu item -->
-        <menuitem name="Reporte Ciudadano CMAS" id="catax.menu_root" sequence="2" groups="catax.operador,catax.operador_ejecutivo,catax.lectura,base.group_system" />
+        <menuitem name="Reporte Ciudadano CMAS" id="catax.menu_root" sequence="1" groups="catax.operador,catax.operador_ejecutivo,catax.lectura,base.group_system" />
         <menuitem name="Reporte Ciudadano CMAS"    id="catax_menu"         sequence="1" parent="catax.menu_root" groups="catax.operador,catax.operador_ejecutivo,catax.lectura,base.group_system" />
         <menuitem name="Reportes" id="reporte_catax_menu" sequence="1" parent="catax_menu" action="catax_action"/>
         <menuitem name="Recanalizar reportes" id="recanalizadar"   parent="catax_menu" action="action_catax_recanalizar" groups="catax.operador,catax.operador_ejecutivo"/>
