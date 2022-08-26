@@ -1168,7 +1168,7 @@ class reporte_individual(models.AbstractModel):
     _description = "Agrega valores al pdf"
 
     @api.model
-    def get_report_values(self, docids, data=None):
+    def _get_report_values(self, docids, data=None):
         docs = self.env['catax.catax'].browse(docids[0])
         url_mapa_image = "https://maps.googleapis.com/maps/api/staticmap?center="+docs.latitud+","+docs.longitud+"&zoom=15&size=300x300&markers=color:blue%7Clabel:R%7C"+docs.latitud+","+docs.longitud+"&key=AIzaSyDt4wgXTrf0mLrmn6WA3SceXEBBkkS5glY"
         try:
@@ -1179,7 +1179,7 @@ class reporte_individual(models.AbstractModel):
             url_mapa = ""
         
         array_return = {
-            'doc_model': 'res.partner',
+            'doc_model': 'catax.cata',
             'data': data,
             'docs': docs,
             'url_mapa': url_mapa,
