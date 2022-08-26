@@ -159,11 +159,11 @@
                             </group>
                           
 
-<<<<<<< HEAD
-                          <group string="Valoración" groups="base.group_system,catax.cmas_ejecutivo" invisible="1">
-=======
+
+
+
                          <!-- <group string="Valoración" groups="base.group_system,catax.cmas_ejecutivo">
->>>>>>> 1a0e6649ab33c4828c8fbc5e3422b4172468a7a7
+
                             <group>
                                 <field name="calificacion_atencion" widget="priority"/>   
                               </group>
