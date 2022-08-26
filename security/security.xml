@@ -2,96 +2,96 @@
 <odoo>
     <data noupdate="0">
         <record id="catax.lectura" model="res.groups">
-            <field name="name">CATAX - Solo lectura</field>
+            <field name="name">Reporte Ciudadano - Solo lectura</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.operador" model="res.groups">
-            <field name="name">CATAX - atencion telefonica</field>
+            <field name="name">Reporte Ciudadano - atencion telefonica</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.cmas_analista" model="res.groups">
-            <field name="name">CATAX - Analista Agua</field>
+            <field name="name">Reporte Ciudadano - Analista Agua</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.tala_analista" model="res.groups">
-            <field name="name">CATAX - Analista Arbolado urbano</field>
+            <field name="name">Reporte Ciudadano - Analista Arbolado urbano</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.obra_analista" model="res.groups">
-            <field name="name">CATAX - Analista Mantenimiento vial</field>
+            <field name="name">Reporte Ciudadano - Analista Mantenimiento vial</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.parq_analista" model="res.groups">
-            <field name="name">CATAX - Analaista Parques</field>
+            <field name="name">Reporte Ciudadano - Analaista Parques</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.rrsu_analista" model="res.groups">
-            <field name="name">CATAX - Analista Limpia Pública</field>
+            <field name="name">Reporte Ciudadano - Analista Limpia Pública</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.otro" model="res.groups">
-            <field name="name">CATAX - Analista Propuesta ciudadana</field>
+            <field name="name">Reporte Ciudadano - Analista Propuesta ciudadana</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.arbo_analista" model="res.groups">
-            <field name="name">CATAX - Analista Reforestación</field>
+            <field name="name">Reporte Ciudadano - Analista Reforestación</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.alum_analista" model="res.groups">
-            <field name="name">CATAX - Analista Alumbrado</field>
+            <field name="name">Reporte Ciudadano - Analista Alumbrado</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.reclamacion_dan" model="res.groups">
-            <field name="name">CATAX - Analista Reclamación por daños</field>
+            <field name="name">Reporte Ciudadano - Analista Reclamación por daños</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.protec_ent_eco" model="res.groups">
-            <field name="name">CATAX - Analista Protección del entorno ecológico</field>
+            <field name="name">Reporte Ciudadano - Analista Protección del entorno ecológico</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
 
         <record id="catax.operador_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo de atencion telefonica</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo de atencion telefonica</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.cmas_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo Agua</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo Agua</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.tala_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo Arbolado urbano</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo Arbolado urbano</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.obra_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo Mantenimiento vial</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo Mantenimiento vial</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.parq_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo Parques</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo Parques</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.rrsu_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo Limpia Pública</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo Limpia Pública</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.otro_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo Propuesta ciudadana</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo Propuesta ciudadana</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.arbo_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo Reforestación</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo Reforestación</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.alum_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo Alumbrado</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo Alumbrado</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.reclamacion_dan_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo Reclamación por daños</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo Reclamación por daños</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
         <record id="catax.protec_ent_eco_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo Protección del entorno ecológico</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo Protección del entorno ecológico</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
 
@@ -99,42 +99,42 @@
         <!-- Nuevos -->
 
         <record id="catax.sipinna" model="res.groups">
-            <field name="name">CATAX - Analista SIPINNA</field>
+            <field name="name">Reporte Ciudadano - Analista SIPINNA</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
 
         <record id="catax.sipinna_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo SIPINNA</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo SIPINNA</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>   
 
         <record id="catax.movilidad_urbana" model="res.groups">
-            <field name="name">CATAX - Analista Movilidad urbana</field>
+            <field name="name">Reporte Ciudadano - Analista Movilidad urbana</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
 
         <record id="catax.movilidad_urbana_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo Movilidad urbana</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo Movilidad urbana</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>   
 
         <record id="catax.inspeccion_contrucciones" model="res.groups">
-            <field name="name">CATAX - Analista Inspección construcciones</field>
+            <field name="name">Reporte Ciudadano - Analista Inspección construcciones</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
 
         <record id="catax.inspeccion_contrucciones_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo Inspección construcciones</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo Inspección construcciones</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>   
 
         <record id="catax.dif" model="res.groups">
-            <field name="name">CATAX - Analista DIF</field>
+            <field name="name">Reporte Ciudadano - Analista DIF</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
 
         <record id="catax.dif_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo DIF</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo DIF</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>  
 
@@ -142,83 +142,83 @@
 
 
         <record id="catax.mercados" model="res.groups">
-            <field name="name">CATAX - Analista Mercados</field>
+            <field name="name">Reporte Ciudadano - Analista Mercados</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
 
 
 
         <record id="catax.mercados_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo Mercados</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo Mercados</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record> 
 
 
 
         <record id="catax.covp" model="res.groups">
-            <field name="name">CATAX - Analista Comercio vía pública</field>
+            <field name="name">Reporte Ciudadano - Analista Comercio vía pública</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
 
         <record id="catax.covp_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo Comercio vía pública</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo Comercio vía pública</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record> 
 
         <record id="catax.coes" model="res.groups">
-            <field name="name">CATAX - Analista Comercio establecido</field>
+            <field name="name">Reporte Ciudadano - Analista Comercio establecido</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
 
         <record id="catax.coes_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo Comercio establecido</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo Comercio establecido</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>  
 
 
         <record id="catax.proteccion_civil" model="res.groups">
-            <field name="name">CATAX - Analista Protección civil</field>
+            <field name="name">Reporte Ciudadano - Analista Protección civil</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
 
         <record id="catax.proteccion_civil_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo Protección civil</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo Protección civil</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record> 
 
         <record id="catax.comu_analista" model="res.groups">
-            <field name="name">CATAX - Analista Contribuciones municipales</field>
+            <field name="name">Reporte Ciudadano - Analista Contribuciones municipales</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
 
         <record id="catax.comu_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo Contribuciones municipales</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo Contribuciones municipales</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>    
 
         <record id="catax.reci_analista" model="res.groups">
-            <field name="name">CATAX - Analista Registro civil</field>
+            <field name="name">Reporte Ciudadano - Analista Registro civil</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
 
         <record id="catax.reci_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo Registro civil</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo Registro civil</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>   
 
         <record id="catax.segu_analista" model="res.groups">
-            <field name="name">CATAX - Analista Seguridad Ciudadana y Tránsito Municipal</field>
+            <field name="name">Reporte Ciudadano - Analista Seguridad Ciudadana y Tránsito Municipal</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
 
         <record id="catax.segu_ejecutivo" model="res.groups">
-            <field name="name">CATAX - Ejecutivo Seguridad Ciudadana y Tránsito Municipal</field>
+            <field name="name">Reporte Ciudadano - Ejecutivo Seguridad Ciudadana y Tránsito Municipal</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>  
 
 
         <record id="catax.catastro_sololectura" model="res.groups">
-            <field name="name">CATAX - Catastro solo lectura</field>
+            <field name="name">Reporte Ciudadano - Catastro solo lectura</field>
             <field name="users" eval="[(4, ref('base.user_root'))]"/>
         </record>
 

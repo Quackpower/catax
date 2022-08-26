@@ -41,8 +41,8 @@
                     </style>
                     <header>
                         <field name="estatus" widget="statusbar"/>
-                        <button string="En proceso" type="object" name="estatus_en_proceso" class="oe_highlight oe_read_only" context="{'estatus': 'enproceso'}" attrs="{'invisible': [('estatus', 'in', ['enproceso','ATEN'])]}" confirm="¿Desea pasar el reporte a en proceso?" groups="catax.cmas_analista,catax.cmas_ejecutivo" />
-                        <button string="Atendido" type="object" name="estatus_atendido" class="oe_highlight oe_read_only" context="{'estatus': 'ATEN'}" attrs="{'invisible': [('estatus', 'in', ['R','ATEN'])]}" confirm="¿Desea pasar el reporte a atendido?"                  groups="catax.cmas_analista,catax.cmas_ejecutivo"/>
+                        <button string="En proceso" type="object" name="estatus_en_proceso" class="oe_highlight oe_read_only" context="{'estatus': 'enproceso'}" attrs="{'invisible': [('estatus', 'in', ['enproceso','ATEN'])]}" confirm="¿Desea pasar el reporte a en proceso?" groups="catax.cmas_analista,catax.cmas_ejecutivo,catax.operador" />
+                        <button string="Atendido" type="object" name="estatus_atendido" class="oe_highlight oe_read_only" context="{'estatus': 'ATEN'}" attrs="{'invisible': [('estatus', 'in', ['R','ATEN'])]}" confirm="¿Desea pasar el reporte a atendido?"                  groups="catax.cmas_analista,catax.cmas_ejecutivo,catax.operador"/>
                         
                     </header>
                     <sheet>
@@ -63,9 +63,9 @@
                           </group>
                           <group>
                               <group>
-                                <field name="categoria" domain="[('activo','!=', False)]" attrs="{'readonly': ['&amp;','|',('is_analist','=',True),('estatus','=','ATEN'),'&amp;',('is_operador','=',False),('is_analist','=',True)]}"/>
+                                <field name="categoria" domain="[('activo','!=', False)]"  attrs="{'readonly': [('estatus','=','ATEN')]}"/>
                                 <field name="cve_categoria" invisible="1" readonly="1"/>
-                                <field name="sub_categoria"  domain="[('categoria','=', categoria)]" attrs="{'readonly': ['&amp;','|', '|', ('estatus','=','ATEN') , '&amp;',('is_analist','=',True),('estatus','=','enproceso'),'&amp;',('is_analist','=',True),('medio_reporte','=','W'),'&amp;',('is_operador','=',False),('is_analist','=',True) ]}"/>       
+                                <field name="sub_categoria"  domain="[('categoria','=', categoria)]"  attrs="{'readonly': [('estatus','=','ATEN')]}"/>       
                                 <field name="cve_subcategoria" invisible="1" readonly="1"/>                                
                                 <field name="telefono" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}" />   
                                 <field name="correo" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}" />   
@@ -114,7 +114,7 @@
                             
                               
                            
-                            <page string="Comentarios de apoyo al reporte" autofocus="autofocus">
+                            <!--<page string="Comentarios de apoyo al reporte" autofocus="autofocus">
                               <group>
                                 <field name="comentarios_reporte" readonly="1" nolabel="1" >
                                   <tree editable="bottom">
@@ -126,21 +126,21 @@
                                 <field name="cant_coment_apoyo" string="Cantidad de comentarios de apoyo" readonly="1"/>   
                               </group>
                               
-                            </page>
+                            </page>-->
                           </notebook>
                           <group string="Atención y seguimiento." >
                             <group>
                               
-                              <field name="prioridad_reporte" />
-                              <field name="comentario_seguimiento" />
-                              <field name="comentario_area"  />
+                              <field name="prioridad_reporte" attrs="{'readonly': [('estatus','=','ATEN')]}"/>
+                              <field name="comentario_seguimiento"  attrs="{'readonly': [('estatus','=','ATEN')]}"/>
+                              <field name="comentario_area"  attrs="{'readonly': [('estatus','=','ATEN')]}" />
                             </group>
 
                             
 
                             <group>
-                              <field name="cerrar_atencion"  /> 
-                              <field name="fecha_estimada" /> 
+                              <field name="cerrar_atencion"   attrs="{'readonly': [('estatus','=','ATEN')]}"/> 
+                              <field name="fecha_estimada" attrs="{'readonly': [('estatus','=','ATEN')]}" /> 
                               <field name="fecha_finalizada" readonly="1" /> 
                             </group>
 
@@ -149,7 +149,7 @@
                           </group>
 
                            <group string="Evidencia de atención" >
-                                <field name="evidencia_atencion"  mode="tree" >
+                                <field name="evidencia_atencion"  mode="tree"  attrs="{'readonly': [('estatus','=','ATEN')]}" >
                                   <tree editable="bottom">
                                     <field name="nombre_archivo" required="1"/>
                                     <field name="evidencia" widget="binary" filename="filename" required="1"/>
@@ -159,7 +159,11 @@
                             </group>
                           
 
+<<<<<<< HEAD
                           <group string="Valoración" groups="base.group_system,catax.cmas_ejecutivo" invisible="1">
+=======
+                         <!-- <group string="Valoración" groups="base.group_system,catax.cmas_ejecutivo">
+>>>>>>> 1a0e6649ab33c4828c8fbc5e3422b4172468a7a7
                             <group>
                                 <field name="calificacion_atencion" widget="priority"/>   
                               </group>
@@ -170,7 +174,7 @@
                                 <field name="comentarios_reportante" />   
                               </group>
 
-                          </group>
+                          </group>-->
 
                         </page>
                         
@@ -216,7 +220,7 @@
             <field name="view_mode">tree,form,graph</field>
             <field name="help" type="html">
                 <p class="oe_view_nocontent_create">
-                    Pulse aquí para agregar un RFC.
+                    Pulse aquí para agregar un reporte.
                 </p>
             </field>
         </record>
