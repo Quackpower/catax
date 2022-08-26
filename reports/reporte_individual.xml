@@ -39,7 +39,7 @@
 						<div class="col-xs-6 col-md-6  col-6">
 							<p><b>Fecha de creación: </b> <span t-field="docs.create_date"/></p>
 							<p><b>Categoria: </b> <span t-field="docs.categoria.display_name"/></p>
-							<p><b>Subcategoria: </b> <span t-field="docs.subcategoria.display_name"/></p>
+							<p><b>Subcategoria: </b> <span t-field="docs.sub_categoria.display_name"/></p>
 						</div>
 						<div class="col-xs-6 col-md-6  col-6">
 							<p><b>Medio de recepción: </b> <span t-field="docs.medio_reporte"/></p>
