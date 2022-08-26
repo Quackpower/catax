@@ -63,9 +63,9 @@
                           </group>
                           <group>
                               <group>
-                                <field name="categoria" domain="[('activo','!=', False)]" attrs="{'readonly': ['&amp;','|',('is_analist','=',True),('estatus','=','ATEN'),'&amp;',('is_operador','=',False),('is_analist','=',True)]}"/>
+                                <field name="categoria" domain="[('activo','!=', False)]"  attrs="{'readonly': [('estatus','=','ATEN')]}"/>
                                 <field name="cve_categoria" invisible="1" readonly="1"/>
-                                <field name="sub_categoria"  domain="[('categoria','=', categoria)]" attrs="{'readonly': ['&amp;','|', '|', ('estatus','=','ATEN') , '&amp;',('is_analist','=',True),('estatus','=','enproceso'),'&amp;',('is_analist','=',True),('medio_reporte','=','W'),'&amp;',('is_operador','=',False),('is_analist','=',True) ]}"/>       
+                                <field name="sub_categoria"  domain="[('categoria','=', categoria)]"  attrs="{'readonly': [('estatus','=','ATEN')]}"/>       
                                 <field name="cve_subcategoria" invisible="1" readonly="1"/>                                
                                 <field name="telefono" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}" />   
                                 <field name="correo" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}" />   
