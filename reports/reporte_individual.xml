@@ -22,7 +22,7 @@
 		string="Reporte individual"
 		report_type="qweb-pdf"
 		name="catax.reporte_individual_template"
-		print_report_name="('Reporte-'+ str(object.folio_report) +'-CATAX')"
+		print_report_name="('Reporte-'+ str(object.folio_report) +'-CMAS')"
 		paperformat="catax.hoja_carta"
 	/>
 
@@ -81,10 +81,10 @@
 					</div>
 
 					<div class="col-xs-12 col-md-12  col-12" style="width:100%">
-						<div class="col-xs-6 col-md-6  col-6" style="width:50%">
+						<div class="col-xs-6 col-md-6  col-6" style="width:45%">
 							<img t-attf-src="data:image/png;base64,{{url_mapa}}" style="text-align:center;width: 90%;"/>
 						</div>
-						<div class="col-xs-6 col-md-6  col-6" style="width:50%">
+						<div class="col-xs-6 col-md-6  col-6" style="width:45%">
 							<t t-if="docs.fotografiaReporte != False and docs.fotografiaReporte != '' and docs.fotografiaReporte != None ">
 								<img t-attf-src="data:image/png;base64,{{docs.fotografiaReporte}}" style="text-align:center; width: 90%;"/>
 							</t>
