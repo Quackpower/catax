@@ -131,16 +131,16 @@
                           <group string="Atención y seguimiento." >
                             <group>
                               
-                              <field name="prioridad_reporte" attrs="{'readonly': ['|',('estatus','=','ATEN')]}"/>
-                              <field name="comentario_seguimiento"  attrs="{'readonly': ['|',('estatus','=','ATEN')]}"/>
-                              <field name="comentario_area"  attrs="{'readonly': ['|',('estatus','=','ATEN')]}" />
+                              <field name="prioridad_reporte" attrs="{'readonly': [('estatus','=','ATEN')]}"/>
+                              <field name="comentario_seguimiento"  attrs="{'readonly': [('estatus','=','ATEN')]}"/>
+                              <field name="comentario_area"  attrs="{'readonly': [('estatus','=','ATEN')]}" />
                             </group>
 
                             
 
                             <group>
-                              <field name="cerrar_atencion"   attrs="{'readonly': ['|',('estatus','=','ATEN')]}"/> 
-                              <field name="fecha_estimada" attrs="{'readonly': ['|',('estatus','=','ATEN')]}" /> 
+                              <field name="cerrar_atencion"   attrs="{'readonly': [('estatus','=','ATEN')]}"/> 
+                              <field name="fecha_estimada" attrs="{'readonly': [('estatus','=','ATEN')]}" /> 
                               <field name="fecha_finalizada" readonly="1" /> 
                             </group>
 
@@ -149,7 +149,7 @@
                           </group>
 
                            <group string="Evidencia de atención" >
-                                <field name="evidencia_atencion"  mode="tree"  attrs="{'readonly': ['|',('estatus','=','ATEN')]}" >
+                                <field name="evidencia_atencion"  mode="tree"  attrs="{'readonly': [('estatus','=','ATEN')]}" >
                                   <tree editable="bottom">
                                     <field name="nombre_archivo" required="1"/>
                                     <field name="evidencia" widget="binary" filename="filename" required="1"/>
