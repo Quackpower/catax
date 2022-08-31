@@ -272,7 +272,7 @@
         <record id="recibidos_todos_view_form" model="ir.actions.act_window.view">
             <field name="sequence" eval="1"/>
             <field name="view_mode">form</field>
-            <field name="view_id" ref="recibidos_todos_form"/>
+            <field name="view_id" ref="catax_catax_form"/>
             <field name="act_window_id" ref="recibidos_todos_action"/>
         </record>
 
