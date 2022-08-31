@@ -283,8 +283,79 @@
             <field name="act_window_id" ref="recibidos_todos_action"/>
         </record>
 
+        <!--En proceso todos -->
+        <record id="proceso_todos_action" model="ir.actions.act_window">
+            <field name="name">Reporte Ciudadano CMAS</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">catax.catax</field>
+            <field name="view_mode">tree,form,graph</field>
+            <field name="domain">[('estatus', '=', 'enproceso')]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Pulse aquí para agregar un reporte.
+                </p>
+            </field>
+        </record>
+
+        <record id="recibidos_todos_view_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="0"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="catax_catax_tree"/>
+            <field name="act_window_id" ref="proceso_todos_action"/>
+        </record>
+
+        <record id="recibidos_todos_view_form" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="catax_catax_form"/>
+            <field name="act_window_id" ref="proceso_todos_action"/>
+        </record>
+
+        <record id="recibidos_todos_view_graph" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="graph_catax"/>
+            <field name="act_window_id" ref="proceso_todos_action"/>
+        </record>
+
+        <!--Finalizados todos -->
+        <record id="finalizado_todos_action" model="ir.actions.act_window">
+            <field name="name">Reporte Ciudadano CMAS</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">catax.catax</field>
+            <field name="view_mode">tree,form,graph</field>
+            <field name="domain">[('estatus', '=', 'R')]</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Pulse aquí para agregar un reporte.
+                </p>
+            </field>
+        </record>
+
+        <record id="recibidos_todos_view_tree" model="ir.actions.act_window.view">
+            <field name="sequence" eval="0"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="catax_catax_tree"/>
+            <field name="act_window_id" ref="finalizado_todos_action"/>
+        </record>
+
+        <record id="recibidos_todos_view_form" model="ir.actions.act_window.view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="catax_catax_form"/>
+            <field name="act_window_id" ref="finalizado_todos_action"/>
+        </record>
+
+        <record id="recibidos_todos_view_graph" model="ir.actions.act_window.view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="graph_catax"/>
+            <field name="act_window_id" ref="finalizado_todos_action"/>
+        </record>
+
         
 
+        <!-- Otros menus -->
         <record id="action_catax_panel_control_action_window" model="ir.actions.server">
           <field name="name">Panel de control</field>
           <field name="type">ir.actions.server</field>
@@ -348,9 +419,20 @@
         <menuitem name="Reportes" id="reporte_catax_menu" sequence="1" parent="catax_menu" action="catax_action"/>
         <menuitem name="Recanalizar reportes" id="recanalizadar"   parent="catax_menu" action="action_catax_recanalizar" groups="catax.operador,catax.operador_ejecutivo"/>
 
+        <!-- Recibidos seccion-->
         <menuitem name="Recibidos"    id="recibidos_menu"         sequence="2" parent="catax.menu_root" groups="catax.operador,catax.operador_ejecutivo,catax.lectura,base.group_system" />
 
         <menuitem name="Recibidos Totales" id="reporte_recibidos_menu" sequence="1" parent="recibidos_menu" action="recibidos_todos_action"/>
+
+         <!-- En proceso -->
+        <menuitem name="En proceso"    id="procesos_menu"         sequence="3" parent="catax.menu_root" groups="catax.operador,catax.operador_ejecutivo,catax.lectura,base.group_system" />
+
+        <menuitem name="En proceso Totales" id="reporte_proceso_menu" sequence="1" parent="procesos_menu" action="proceso_todos_action"/>
+
+         <!--Finalizados-->
+        <menuitem name="Finalizados"    id="finalizados_menu"         sequence="3" parent="catax.menu_root" groups="catax.operador,catax.operador_ejecutivo,catax.lectura,base.group_system" />
+
+        <menuitem name="Finalizados Totales" id="reporte_finalizado_menu" sequence="1" parent="finalizados_menu" action="finalizado_todos_action"/>
 
 
         
