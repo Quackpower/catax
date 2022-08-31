@@ -266,7 +266,6 @@
             <field name="sequence" eval="0"/>
             <field name="view_mode">tree</field>
             <field name="view_id" ref="catax_catax_tree"/>
-            <field name="domain">[('estatus', '=', 'R')]</field>
             <field name="act_window_id" ref="recibidos_todos_action"/>
         </record>
 
@@ -274,7 +273,6 @@
             <field name="sequence" eval="1"/>
             <field name="view_mode">form</field>
             <field name="view_id" ref="recibidos_todos_form"/>
-            <field name="domain">[('estatus', '=', 'R')]</field>
             <field name="act_window_id" ref="recibidos_todos_action"/>
         </record>
 
@@ -282,7 +280,6 @@
             <field name="sequence" eval="2"/>
             <field name="view_mode">graph</field>
             <field name="view_id" ref="graph_catax"/>
-            <field name="domain">[('estatus', '=', 'R')]</field>
             <field name="act_window_id" ref="recibidos_todos_action"/>
         </record>
 
