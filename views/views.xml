@@ -414,9 +414,9 @@
         <menuitem name="Reporte Ciudadano CMAS" id="catax.menu_root" sequence="1" groups="catax.operador,catax.operador_ejecutivo,catax.lectura,base.group_system" />
 
 
-        <menuitem name="Reporte Ciudadano CMAS"    id="catax_menu"         sequence="4" parent="catax.menu_root" groups="catax.operador,catax.operador_ejecutivo,catax.lectura,base.group_system" />
+        <menuitem name="Todos los reporte"    id="catax_menu"         sequence="4" parent="catax.menu_root" groups="catax.operador,catax.operador_ejecutivo,catax.lectura,base.group_system" action="catax_action" />
 
-        <menuitem name="Todos los reportes" id="reporte_catax_menu" sequence="1" parent="catax_menu" action="catax_action"/>
+        <!--<menuitem name="Todos los reportes" id="reporte_catax_menu" sequence="1" parent="catax_menu" action="catax_action"/>-->
         
 
         <!-- Recibidos seccion-->
