@@ -416,8 +416,8 @@
 
         <menuitem name="Reporte Ciudadano CMAS"    id="catax_menu"         sequence="4" parent="catax.menu_root" groups="catax.operador,catax.operador_ejecutivo,catax.lectura,base.group_system" />
 
-        <menuitem name="Reportes" id="reporte_catax_menu" sequence="1" parent="catax_menu" action="catax_action"/>
-        <menuitem name="Recanalizar reportes" id="recanalizadar"   parent="catax_menu" action="action_catax_recanalizar" groups="catax.operador,catax.operador_ejecutivo"/>
+        <menuitem name="Todos los reportes" id="reporte_catax_menu" sequence="1" parent="catax_menu" action="catax_action"/>
+        
 
         <!-- Recibidos seccion-->
         <menuitem name="Recibidos"    id="recibidos_menu"         sequence="2" parent="catax.menu_root" groups="catax.operador,catax.operador_ejecutivo,catax.lectura,base.group_system" />
@@ -435,11 +435,11 @@
         <menuitem name="Finalizados Totales" id="reporte_finalizado_menu" sequence="1" parent="finalizados_menu" action="finalizado_todos_action"/>
 
 
-        
+        <!--
 
 
         <menuitem name="Generar informe" id="generar_reportes_catax" parent="catax_menu" action="action_reportes_catax" groups="base.group_system,catax.operador_ejecutivo" />
-        <!-- menu categories groups="configsolicitudes.contralor,configsolicitudes.analista"
+         menu categories groups="configsolicitudes.contralor,configsolicitudes.analista"
         <menuitem name="Estadísticas de efectividad" id="estadistica_catax_menu" parent="catax_menu" action="action_catax_panel_control_action_window" />-->
  
 </odoo>
