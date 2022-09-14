@@ -68,7 +68,8 @@
                                 <field name="sub_categoria"  domain="[('categoria','=', categoria)]"  attrs="{'readonly': [('estatus','=','ATEN')]}"/>       
                                 <field name="cve_subcategoria" invisible="1" readonly="1"/>                                
                                 <field name="telefono" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}" />   
-                                <field name="correo" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}" />   
+                                <field name="correo" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}" /> 
+                                <field name="numcuenta" attrs="{'required': [('sub_categoria','=',2)]}" />   
                               </group>
                               <group>                                
                                 <field name="medio_reporte" attrs="{'readonly': ['|',('estatus','!=','R'),('medio_reporte','=','W')]}" /> 

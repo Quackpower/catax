@@ -12,7 +12,7 @@
 		<field name="margin_left">15</field>
 		<field name="margin_right">15</field>
 		<field name="header_line" eval="False"/>
-		<field name="header_spacing">30</field>
+		<field name="header_spacing">0</field>
 		<field name="dpi">80</field>
 	</record>
 
@@ -31,7 +31,7 @@
 					
 			 	<div class="header" style="border-bottom: 1px solid black;">
 				 	<img style="width: 80px;position: absolute;margin-top: -5px; margin-left: 5%;" src="http://cmas-coatepec.ticveracruz.com/wp/wp-content/uploads/2022/06/logo2.png" />
-
+					<br/>
 					<h3 class="text-center">Reporte - <span t-field="docs.folio_report"/></h3>
 				</div>
 				<div class="article mt0 o_report_layout_standard">

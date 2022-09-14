@@ -84,7 +84,7 @@ class catax(models.Model):
     #Atencion evidencia
     evidencia_atencion = fields.One2many('catax.evidencia_atencion', 'id_report', string='Evidencia de atención')
 
-    
+    numcuenta = fields.Text(string="Número de cuenta")
 
     @api.model
     def _get_operador(self):
@@ -370,10 +370,10 @@ class catax(models.Model):
     def send_correcoelect(self, textbody, asunto, email_aux,adjuntar_evidencia,link_encuesta=False):
         template_id = self.env.ref('catax.email_template_notificaciones_reporte', False)
         if not email_aux:
-            correo_enviar =  self.correo
+            correo_enviar =  self.correo 
         else:
             correo_enviar = email_aux
-        if self.env['ir.config_parameter'].search([('key', '=', 'web.base.url')]).value != 'http://sirac.cmas-coatepec.gob.mx':
+        if self.env['ir.config_parameter'].search([('key', '=', 'web.base.url')]).value != 'http://ssirac.cmas-coatepec.gob.mx':
             msj_prueba = asunto + ' (Este correo fue mandado desde un entorno de pruebas)'
         else:
             msj_prueba = asunto   
