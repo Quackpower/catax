@@ -373,10 +373,6 @@ class catax(models.Model):
             correo_enviar =  self.correo 
         else:
             correo_enviar = email_aux
-        if self.env['ir.config_parameter'].search([('key', '=', 'web.base.url')]).value != 'https://ssirac.cmas-coatepec.gob.mx':
-            msj_prueba = asunto + ' (Este correo fue mandado desde un entorno de pruebas)'
-        else:
-            msj_prueba = asunto   
 
         template = self.env['mail.template'].browse(template_id.id)
         template.attachment_ids = False
