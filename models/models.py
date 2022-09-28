@@ -409,7 +409,7 @@ class catax(models.Model):
                 raise Warning("No se puede enviar correo de contestación, error en la recuperación del archivo - " + str(er))
 
         mail_values = {
-            'asunto_correo': msj_prueba ,
+            'asunto_correo': 'Sistema de reportes ciudadanos CMAS Coapetec' ,
             'correo': correo_enviar,
             'body_txt': textbody
         }
