@@ -36,7 +36,8 @@
 				</div>
 				<div class="article mt0 o_report_layout_standard" style="margin-top: 30px;">
 					<div class="col-xs-12 col-md-12  col-12">
-						<div class="col-xs-6 col-md-6  col-6">
+						<div class="col-xs-12 col-md-12  col-12">
+						<p></p>
 							<p><b>Fecha de creación: </b> <span t-field="docs.create_date"/></p>
 							<p><b>Categoria: </b> <span t-field="docs.categoria.display_name"/></p>
 							<p><b>Subcategoria: </b> <span t-field="docs.sub_categoria.display_name"/></p>
@@ -44,7 +45,7 @@
 								<p><b>Número de Cuenta: </b> <span t-esc="docs.numcuenta"  /></p>
 							</t>
 						</div>
-						<div class="col-xs-6 col-md-6  col-6">
+						<div class="col-xs-12 col-md-12  col-12">
 							<p><b>Medio de recepción: </b> <span t-field="docs.medio_reporte"/></p>
 							<t t-if="docs.telefono != False or docs.telefono != '' ">
 								<p><b>Teléfono: </b> <span t-esc="docs.telefono"  /></p>
@@ -57,7 +58,9 @@
 						<div class="col-xs-12 col-md-12  col-12">
 						
 							<p><b>Descripción del reporte : </b> <span t-field="docs.descripcion_reporte"/></p>
-							<p><b>Observaciones : </b> <span t-field="docs.observaciones"/></p>
+							<t t-if="docs.observaciones != False or docs.observaciones != ''">
+								<p><b>Observaciones : </b> <span t-field="docs.observaciones"/></p>
+							</t>
 						</div>
 					</div>
 					
